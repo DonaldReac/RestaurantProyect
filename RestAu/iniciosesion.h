@@ -2,6 +2,7 @@
 #define INICIOSESION_H
 
 #include <QMainWindow>
+#include <qdebug.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class InicioSesion; }
