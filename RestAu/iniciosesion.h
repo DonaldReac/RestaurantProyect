@@ -2,6 +2,10 @@
 #define INICIOSESION_H
 
 #include <QMainWindow>
+#include <QSql>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QMessageBox>
 #include <qdebug.h>
 
 QT_BEGIN_NAMESPACE
@@ -18,5 +22,6 @@ public:
 
 private:
     Ui::InicioSesion *ui;
+    QSqlDatabase  conexion;
 };
 #endif // INICIOSESION_H
