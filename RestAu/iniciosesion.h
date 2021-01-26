@@ -20,6 +20,9 @@ public:
     InicioSesion(QWidget *parent = nullptr);
     ~InicioSesion();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::InicioSesion *ui;
     QSqlDatabase  conexion;
