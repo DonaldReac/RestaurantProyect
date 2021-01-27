@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/Iconos/iconfinder_142-man-cook-2_3099395.png</file>
+        <file>img/Iconos/iconfinder_person_3_1376034.png</file>
+        <file>img/Iconos/Waiter_Male_Dark.png</file>
+        <file>img/Iconos/Waiter_Male_Light.png</file>
+        <file>img/Iconos/logo.jpeg</file>
+        <file>img/Iconos/logosinfondo.png</file>
+        <file>img/Iconos/lupa.png</file>
+        <file>img/Iconos/trabajando (1).png</file>
+    </qresource>
+</RCC>

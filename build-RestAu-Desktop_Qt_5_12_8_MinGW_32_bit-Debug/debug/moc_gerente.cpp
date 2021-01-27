@@ -1,16 +1,16 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'iniciosesion.h'
+** Meta object code from reading C++ file 'gerente.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.8)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../RestAu/iniciosesion.h"
+#include "../../RestAu/gerente.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'iniciosesion.h' doesn't include <QObject>."
+#error "The header file 'gerente.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.12.8. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -20,27 +20,27 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_InicioSesion_t {
+struct qt_meta_stringdata_gerente_t {
     QByteArrayData data[3];
-    char stringdata0[36];
+    char stringdata0[33];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_InicioSesion_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_gerente_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_InicioSesion_t qt_meta_stringdata_InicioSesion = {
+static const qt_meta_stringdata_gerente_t qt_meta_stringdata_gerente = {
     {
-QT_MOC_LITERAL(0, 0, 12), // "InicioSesion"
-QT_MOC_LITERAL(1, 13, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(2, 35, 0) // ""
+QT_MOC_LITERAL(0, 0, 7), // "gerente"
+QT_MOC_LITERAL(1, 8, 23), // "on_pushButton_2_clicked"
+QT_MOC_LITERAL(2, 32, 0) // ""
 
     },
-    "InicioSesion\0on_pushButton_clicked\0"
+    "gerente\0on_pushButton_2_clicked\0"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_InicioSesion[] = {
+static const uint qt_meta_data_gerente[] = {
 
  // content:
        8,       // revision
@@ -62,45 +62,45 @@ static const uint qt_meta_data_InicioSesion[] = {
        0        // eod
 };
 
-void InicioSesion::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void gerente::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<InicioSesion *>(_o);
+        auto *_t = static_cast<gerente *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_pushButton_clicked(); break;
+        case 0: _t->on_pushButton_2_clicked(); break;
         default: ;
         }
     }
     Q_UNUSED(_a);
 }
 
-QT_INIT_METAOBJECT const QMetaObject InicioSesion::staticMetaObject = { {
-    &QMainWindow::staticMetaObject,
-    qt_meta_stringdata_InicioSesion.data,
-    qt_meta_data_InicioSesion,
+QT_INIT_METAOBJECT const QMetaObject gerente::staticMetaObject = { {
+    &QDialog::staticMetaObject,
+    qt_meta_stringdata_gerente.data,
+    qt_meta_data_gerente,
     qt_static_metacall,
     nullptr,
     nullptr
 } };
 
 
-const QMetaObject *InicioSesion::metaObject() const
+const QMetaObject *gerente::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *InicioSesion::qt_metacast(const char *_clname)
+void *gerente::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_InicioSesion.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_gerente.stringdata0))
         return static_cast<void*>(this);
-    return QMainWindow::qt_metacast(_clname);
+    return QDialog::qt_metacast(_clname);
 }
 
-int InicioSesion::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int gerente::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QMainWindow::qt_metacall(_c, _id, _a);
+    _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {

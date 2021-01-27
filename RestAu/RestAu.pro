@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,16 +16,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    gerente.cpp \
     main.cpp \
     iniciosesion.cpp
 
 HEADERS += \
+    gerente.h \
     iniciosesion.h
 
 FORMS += \
+    gerente.ui \
     iniciosesion.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Img.qrc
