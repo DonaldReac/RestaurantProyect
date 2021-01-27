@@ -108,11 +108,21 @@ compiler_rcc_clean:
 release/qrc_Img.cpp: ../RestAu/Img.qrc \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/bin/rcc.exe \
 		../RestAu/img/Iconos/logosinfondo.png \
+		../RestAu/img/Iconos/logosinfondo1.png \
 		../RestAu/img/Iconos/Waiter_Male_Light.png \
+		../RestAu/img/Iconos/editar.png \
+		../RestAu/img/Iconos/hot-cakes-tradicionales.png \
+		../RestAu/img/Iconos/lupa.png \
+		../RestAu/img/Iconos/anadir.png \
+		../RestAu/img/Iconos/descargar.jpg \
 		../RestAu/img/Iconos/iconfinder_person_3_1376034.png \
 		../RestAu/img/Iconos/Waiter_Male_Dark.png \
 		../RestAu/img/Iconos/iconfinder_142-man-cook-2_3099395.png \
-		../RestAu/img/Iconos/logo.jpeg
+		../RestAu/img/Iconos/trabajando\ (1).png \
+		../RestAu/img/Iconos/salida.png \
+		../RestAu/img/Iconos/Tortitas-avena-y-plátano-YouTube.jpg \
+		../RestAu/img/Iconos/logo.jpeg \
+		../RestAu/img/Iconos/inventario.png
 	C:\Qt\Qt5.12.8\5.12.8\mingw73_32\bin\rcc.exe -name Img ..\RestAu\Img.qrc -o release\qrc_Img.cpp
 
 compiler_moc_predefs_make_all: release/moc_predefs.h
@@ -229,6 +239,15 @@ release/moc_gerente.cpp: ../RestAu/gerente.h \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtCore/qfiledevice.h \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtGui/qvector2d.h \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtGui/qtouchdevice.h \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtSql/QSql \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtSql/qtsqlglobal.h \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtSql/qtsql-config.h \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtSql/QSqlDatabase \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtSql/qsqldatabase.h \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtSql/QSqlQuery \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtSql/qsqlquery.h \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtWidgets/QMessageBox \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtWidgets/qmessagebox.h \
 		release/moc_predefs.h \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/bin/moc.exe
 	C:\Qt\Qt5.12.8\5.12.8\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/luisd/Desktop/universidad/QT/RestaurantProyect/build-RestAu-Desktop_Qt_5_12_8_MinGW_32_bit-Debug/release/moc_predefs.h -IC:/Qt/Qt5.12.8/5.12.8/mingw73_32/mkspecs/win32-g++ -IC:/Users/luisd/Desktop/universidad/QT/RestaurantProyect/RestAu -IC:/Qt/Qt5.12.8/5.12.8/mingw73_32/include -IC:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtPrintSupport -IC:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtWidgets -IC:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtGui -IC:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtANGLE -IC:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtSql -IC:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtCore -I. -IC:/Qt/Qt5.12.8/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Qt5.12.8/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.12.8/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Qt5.12.8/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Qt5.12.8/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Qt5.12.8/Tools/mingw730_32/i686-w64-mingw32/include ..\RestAu\gerente.h -o release\moc_gerente.cpp
@@ -486,6 +505,15 @@ release/gerente.o: ../RestAu/gerente.cpp ../RestAu/gerente.h \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtCore/qfiledevice.h \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtGui/qvector2d.h \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtGui/qtouchdevice.h \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtSql/QSql \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtSql/qtsqlglobal.h \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtSql/qtsql-config.h \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtSql/QSqlDatabase \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtSql/qsqldatabase.h \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtSql/QSqlQuery \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtSql/qsqlquery.h \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtWidgets/QMessageBox \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtWidgets/qmessagebox.h \
 		ui_gerente.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\gerente.o ..\RestAu\gerente.cpp
 
@@ -612,7 +640,12 @@ release/main.o: ../RestAu/main.cpp ../RestAu/iniciosesion.h \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtCore/qeventloop.h \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtGui/qinputmethod.h
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtGui/qinputmethod.h \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtWidgets/QSplashScreen \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtWidgets/qsplashscreen.h \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtCore/QTimer \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtCore/qtimer.h \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtCore/qbasictimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\RestAu\main.cpp
 
 release/iniciosesion.o: ../RestAu/iniciosesion.cpp ../RestAu/iniciosesion.h \
@@ -732,7 +765,9 @@ release/iniciosesion.o: ../RestAu/iniciosesion.cpp ../RestAu/iniciosesion.h \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtWidgets/QMessageBox \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtWidgets/qmessagebox.h \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtWidgets/qdialog.h \
-		ui_iniciosesion.h
+		ui_iniciosesion.h \
+		../RestAu/gerente.h \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtWidgets/QDialog
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\iniciosesion.o ..\RestAu\iniciosesion.cpp
 
 release/qrc_Img.o: release/qrc_Img.cpp 

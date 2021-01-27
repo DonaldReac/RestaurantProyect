@@ -32,8 +32,9 @@ void InicioSesion::on_pushButton_clicked()
     conexion.open();
     QString ID;
     QString Contra;
-    gerente app(this);
-    app.exec();
+    gerente *aux= new gerente();
+    aux->show();
+    close();
     //ID = ui->CodigoID->text();
     //Contra = ui->Contrasena->text();
 

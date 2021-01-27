@@ -18,8 +18,8 @@
     <rect>
      <x>0</x>
      <y>-10</y>
-     <width>231</width>
-     <height>471</height>
+     <width>151</width>
+     <height>481</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -42,31 +42,12 @@ QPushButton:hover
 	background-color: rgb(223, 138, 19);
 }</string>
     </property>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>30</y>
-       <width>171</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap resource="Img.qrc">:/img/Iconos/logosinfondo1.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="Buscar">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>160</y>
-       <width>231</width>
+       <width>151</width>
        <height>51</height>
       </rect>
      </property>
@@ -84,12 +65,12 @@ QPushButton:hover
       </size>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="Editar">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>210</y>
-       <width>231</width>
+       <width>151</width>
        <height>51</height>
       </rect>
      </property>
@@ -107,12 +88,12 @@ QPushButton:hover
       </size>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_4">
+    <widget class="QPushButton" name="Agregar">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>260</y>
-       <width>231</width>
+       <width>151</width>
        <height>51</height>
       </rect>
      </property>
@@ -120,8 +101,8 @@ QPushButton:hover
       <string>Agregar</string>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>img/Iconos/anadir.png</normaloff>img/Iconos/anadir.png</iconset>
+      <iconset resource="Img.qrc">
+       <normaloff>:/img/Iconos/anadir.png</normaloff>:/img/Iconos/anadir.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -130,12 +111,12 @@ QPushButton:hover
       </size>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_5">
+    <widget class="QPushButton" name="Inventario">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>310</y>
-       <width>231</width>
+       <width>151</width>
        <height>51</height>
       </rect>
      </property>
@@ -157,8 +138,8 @@ QPushButton:hover
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>420</y>
-       <width>231</width>
+       <y>432</y>
+       <width>151</width>
        <height>41</height>
       </rect>
      </property>
@@ -189,16 +170,35 @@ QPushButton:hover
       </size>
      </property>
     </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>161</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="Img.qrc">:/img/Iconos/logosinfondo1.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="page_2"/>
   </widget>
   <widget class="QStackedWidget" name="stackedWidget_2">
    <property name="geometry">
     <rect>
-     <x>229</x>
+     <x>149</x>
      <y>-11</y>
-     <width>501</width>
-     <height>471</height>
+     <width>581</width>
+     <height>481</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -214,24 +214,158 @@ QPushButton:hover
 }
 QPushButton:hover
 {
-	background-color: rgb(223, 138, 19);
-	
-}</string>
+	background-color: rgb(223, 138, 19);	
+}
+#page_3
+{
+	background-color: rgb(217, 190, 167);
+}
+</string>
     </property>
     <widget class="QTableWidget" name="TablaUsuarios">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>100</y>
-       <width>481</width>
-       <height>251</height>
+       <width>551</width>
+       <height>231</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+</string>
+     </property>
+     <column>
+      <property name="text">
+       <string>ID</string>
+      </property>
+      <property name="background">
+       <color>
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </property>
+      <property name="foreground">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Nombre</string>
+      </property>
+      <property name="background">
+       <color>
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </property>
+      <property name="foreground">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Apellido Paterno</string>
+      </property>
+      <property name="background">
+       <color>
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </property>
+      <property name="foreground">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Apellido Materno</string>
+      </property>
+      <property name="background">
+       <color>
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </property>
+      <property name="foreground">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Puesto</string>
+      </property>
+      <property name="background">
+       <color>
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </property>
+      <property name="foreground">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Edad</string>
+      </property>
+      <property name="background">
+       <color>
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </property>
+      <property name="foreground">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </property>
+     </column>
     </widget>
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>210</x>
        <y>20</y>
        <width>181</width>
        <height>31</height>
@@ -246,6 +380,9 @@ QPushButton:hover
        <bold>false</bold>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255,0);</string>
+     </property>
      <property name="text">
       <string>Buscar Usuarios</string>
      </property>
@@ -255,47 +392,34 @@ QPushButton:hover
       <rect>
        <x>70</x>
        <y>60</y>
-       <width>411</width>
+       <width>461</width>
        <height>31</height>
       </rect>
      </property>
-    </widget>
-    <widget class="QLabel" name="label_3">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>60</y>
-       <width>31</width>
-       <height>31</height>
-      </rect>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
-     <property name="font">
-      <font>
-       <family>Caviar Dreams</family>
-       <pointsize>18</pointsize>
-       <weight>50</weight>
-       <italic>true</italic>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>ID: </string>
+     <property name="placeholderText">
+      <string>ID DE EMPLEADO</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>240</x>
-       <y>280</y>
-       <width>311</width>
-       <height>261</height>
+       <x>250</x>
+       <y>310</y>
+       <width>331</width>
+       <height>211</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255,0);</string>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="Img.qrc">:/img/Iconos/hot-cakes-tradicionales.png</pixmap>
+      <pixmap resource="Img.qrc">:/img/Iconos/hot-cakes-con-miel-y-frutos-rojos.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -308,7 +432,6 @@ QPushButton:hover
     <zorder>TablaUsuarios</zorder>
     <zorder>label_2</zorder>
     <zorder>lineEdit</zorder>
-    <zorder>label_3</zorder>
    </widget>
    <widget class="QWidget" name="page_4"/>
   </widget>

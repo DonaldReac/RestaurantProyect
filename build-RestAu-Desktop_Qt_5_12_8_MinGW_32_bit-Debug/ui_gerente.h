@@ -28,19 +28,18 @@ class Ui_gerente
 public:
     QStackedWidget *stackedWidget;
     QWidget *page;
-    QLabel *label;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_5;
+    QPushButton *Buscar;
+    QPushButton *Editar;
+    QPushButton *Agregar;
+    QPushButton *Inventario;
     QPushButton *pushButton;
+    QLabel *label;
     QWidget *page_2;
     QStackedWidget *stackedWidget_2;
     QWidget *page_3;
     QTableWidget *TablaUsuarios;
     QLabel *label_2;
     QLineEdit *lineEdit;
-    QLabel *label_3;
     QLabel *label_4;
     QWidget *page_4;
 
@@ -51,9 +50,10 @@ public:
         gerente->resize(726, 463);
         stackedWidget = new QStackedWidget(gerente);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
-        stackedWidget->setGeometry(QRect(0, -10, 231, 471));
-        stackedWidget->setStyleSheet(QString::fromUtf8("background-color: rgb(77, 80, 93);\n"
-"\n"
+        stackedWidget->setGeometry(QRect(0, -10, 151, 481));
+        stackedWidget->setStyleSheet(QString::fromUtf8("QWidget{\n"
+"	background-color: #C0C4CF;\n"
+"}\n"
 ""));
         page = new QWidget();
         page->setObjectName(QString::fromUtf8("page"));
@@ -68,42 +68,37 @@ public:
 "{\n"
 "	background-color: rgb(223, 138, 19);\n"
 "}"));
-        label = new QLabel(page);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(30, 30, 171, 81));
-        label->setPixmap(QPixmap(QString::fromUtf8(":/img/Iconos/logo.jpeg")));
-        label->setScaledContents(true);
-        pushButton_2 = new QPushButton(page);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(0, 160, 231, 51));
+        Buscar = new QPushButton(page);
+        Buscar->setObjectName(QString::fromUtf8("Buscar"));
+        Buscar->setGeometry(QRect(0, 160, 151, 51));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/img/Iconos/lupa.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_2->setIcon(icon);
-        pushButton_2->setIconSize(QSize(35, 35));
-        pushButton_3 = new QPushButton(page);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        pushButton_3->setGeometry(QRect(0, 210, 231, 51));
+        Buscar->setIcon(icon);
+        Buscar->setIconSize(QSize(35, 35));
+        Editar = new QPushButton(page);
+        Editar->setObjectName(QString::fromUtf8("Editar"));
+        Editar->setGeometry(QRect(0, 210, 151, 51));
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/img/Iconos/editar.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_3->setIcon(icon1);
-        pushButton_3->setIconSize(QSize(35, 35));
-        pushButton_4 = new QPushButton(page);
-        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
-        pushButton_4->setGeometry(QRect(0, 260, 231, 51));
+        Editar->setIcon(icon1);
+        Editar->setIconSize(QSize(35, 35));
+        Agregar = new QPushButton(page);
+        Agregar->setObjectName(QString::fromUtf8("Agregar"));
+        Agregar->setGeometry(QRect(0, 260, 151, 51));
         QIcon icon2;
-        icon2.addFile(QString::fromUtf8("img/Iconos/anadir.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_4->setIcon(icon2);
-        pushButton_4->setIconSize(QSize(35, 35));
-        pushButton_5 = new QPushButton(page);
-        pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
-        pushButton_5->setGeometry(QRect(0, 310, 231, 51));
+        icon2.addFile(QString::fromUtf8(":/img/Iconos/anadir.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Agregar->setIcon(icon2);
+        Agregar->setIconSize(QSize(35, 35));
+        Inventario = new QPushButton(page);
+        Inventario->setObjectName(QString::fromUtf8("Inventario"));
+        Inventario->setGeometry(QRect(0, 310, 151, 51));
         QIcon icon3;
         icon3.addFile(QString::fromUtf8(":/img/Iconos/inventario.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_5->setIcon(icon3);
-        pushButton_5->setIconSize(QSize(35, 35));
+        Inventario->setIcon(icon3);
+        Inventario->setIconSize(QSize(35, 35));
         pushButton = new QPushButton(page);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(0, 420, 231, 41));
+        pushButton->setGeometry(QRect(0, 432, 151, 41));
         pushButton->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "  border:0px solid gray;\n"
@@ -119,13 +114,18 @@ public:
         icon4.addFile(QString::fromUtf8(":/img/Iconos/salida.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton->setIcon(icon4);
         pushButton->setIconSize(QSize(30, 30));
+        label = new QLabel(page);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(0, 20, 161, 81));
+        label->setPixmap(QPixmap(QString::fromUtf8(":/img/Iconos/logosinfondo1.png")));
+        label->setScaledContents(true);
         stackedWidget->addWidget(page);
         page_2 = new QWidget();
         page_2->setObjectName(QString::fromUtf8("page_2"));
         stackedWidget->addWidget(page_2);
         stackedWidget_2 = new QStackedWidget(gerente);
         stackedWidget_2->setObjectName(QString::fromUtf8("stackedWidget_2"));
-        stackedWidget_2->setGeometry(QRect(229, -11, 501, 471));
+        stackedWidget_2->setGeometry(QRect(149, -11, 581, 481));
         stackedWidget_2->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
         page_3 = new QWidget();
         page_3->setObjectName(QString::fromUtf8("page_3"));
@@ -137,15 +137,49 @@ public:
 "}\n"
 "QPushButton:hover\n"
 "{\n"
-"	background-color: rgb(223, 138, 19);\n"
-"	\n"
-"}"));
+"	background-color: rgb(223, 138, 19);	\n"
+"}\n"
+"#page_3\n"
+"{\n"
+"	background-color: rgb(217, 190, 167);\n"
+"}\n"
+""));
         TablaUsuarios = new QTableWidget(page_3);
+        if (TablaUsuarios->columnCount() < 6)
+            TablaUsuarios->setColumnCount(6);
+        QBrush brush(QColor(0, 0, 0, 255));
+        brush.setStyle(Qt::SolidPattern);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        __qtablewidgetitem->setBackground(QColor(0, 0, 0));
+        __qtablewidgetitem->setForeground(brush);
+        TablaUsuarios->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        __qtablewidgetitem1->setBackground(QColor(0, 0, 0));
+        __qtablewidgetitem1->setForeground(brush);
+        TablaUsuarios->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        __qtablewidgetitem2->setBackground(QColor(0, 0, 0));
+        __qtablewidgetitem2->setForeground(brush);
+        TablaUsuarios->setHorizontalHeaderItem(2, __qtablewidgetitem2);
+        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        __qtablewidgetitem3->setBackground(QColor(0, 0, 0));
+        __qtablewidgetitem3->setForeground(brush);
+        TablaUsuarios->setHorizontalHeaderItem(3, __qtablewidgetitem3);
+        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
+        __qtablewidgetitem4->setBackground(QColor(0, 0, 0));
+        __qtablewidgetitem4->setForeground(brush);
+        TablaUsuarios->setHorizontalHeaderItem(4, __qtablewidgetitem4);
+        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
+        __qtablewidgetitem5->setBackground(QColor(0, 0, 0));
+        __qtablewidgetitem5->setForeground(brush);
+        TablaUsuarios->setHorizontalHeaderItem(5, __qtablewidgetitem5);
         TablaUsuarios->setObjectName(QString::fromUtf8("TablaUsuarios"));
-        TablaUsuarios->setGeometry(QRect(10, 100, 481, 251));
+        TablaUsuarios->setGeometry(QRect(10, 100, 551, 231));
+        TablaUsuarios->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+""));
         label_2 = new QLabel(page_3);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(160, 20, 181, 31));
+        label_2->setGeometry(QRect(210, 20, 181, 31));
         QFont font;
         font.setFamily(QString::fromUtf8("Caviar Dreams"));
         font.setPointSize(18);
@@ -153,17 +187,16 @@ public:
         font.setItalic(true);
         font.setWeight(50);
         label_2->setFont(font);
+        label_2->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255,0);"));
         lineEdit = new QLineEdit(page_3);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(70, 60, 411, 31));
-        label_3 = new QLabel(page_3);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(30, 60, 31, 31));
-        label_3->setFont(font);
+        lineEdit->setGeometry(QRect(70, 60, 461, 31));
+        lineEdit->setAlignment(Qt::AlignCenter);
         label_4 = new QLabel(page_3);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(240, 280, 311, 261));
-        label_4->setPixmap(QPixmap(QString::fromUtf8(":/img/Iconos/hot-cakes-tradicionales.png")));
+        label_4->setGeometry(QRect(250, 310, 331, 211));
+        label_4->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255,0);"));
+        label_4->setPixmap(QPixmap(QString::fromUtf8(":/img/Iconos/hot-cakes-con-miel-y-frutos-rojos.png")));
         label_4->setScaledContents(true);
         label_4->setWordWrap(false);
         stackedWidget_2->addWidget(page_3);
@@ -171,7 +204,6 @@ public:
         TablaUsuarios->raise();
         label_2->raise();
         lineEdit->raise();
-        label_3->raise();
         page_4 = new QWidget();
         page_4->setObjectName(QString::fromUtf8("page_4"));
         stackedWidget_2->addWidget(page_4);
@@ -184,14 +216,26 @@ public:
     void retranslateUi(QDialog *gerente)
     {
         gerente->setWindowTitle(QApplication::translate("gerente", "Dialog", nullptr));
-        label->setText(QString());
-        pushButton_2->setText(QApplication::translate("gerente", "Buscar", nullptr));
-        pushButton_3->setText(QApplication::translate("gerente", "Editar", nullptr));
-        pushButton_4->setText(QApplication::translate("gerente", "Agregar", nullptr));
-        pushButton_5->setText(QApplication::translate("gerente", "Inventario", nullptr));
+        Buscar->setText(QApplication::translate("gerente", "Buscar", nullptr));
+        Editar->setText(QApplication::translate("gerente", "Editar", nullptr));
+        Agregar->setText(QApplication::translate("gerente", "Agregar", nullptr));
+        Inventario->setText(QApplication::translate("gerente", "Inventario", nullptr));
         pushButton->setText(QString());
+        label->setText(QString());
+        QTableWidgetItem *___qtablewidgetitem = TablaUsuarios->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QApplication::translate("gerente", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem1 = TablaUsuarios->horizontalHeaderItem(1);
+        ___qtablewidgetitem1->setText(QApplication::translate("gerente", "Nombre", nullptr));
+        QTableWidgetItem *___qtablewidgetitem2 = TablaUsuarios->horizontalHeaderItem(2);
+        ___qtablewidgetitem2->setText(QApplication::translate("gerente", "Apellido Paterno", nullptr));
+        QTableWidgetItem *___qtablewidgetitem3 = TablaUsuarios->horizontalHeaderItem(3);
+        ___qtablewidgetitem3->setText(QApplication::translate("gerente", "Apellido Materno", nullptr));
+        QTableWidgetItem *___qtablewidgetitem4 = TablaUsuarios->horizontalHeaderItem(4);
+        ___qtablewidgetitem4->setText(QApplication::translate("gerente", "Puesto", nullptr));
+        QTableWidgetItem *___qtablewidgetitem5 = TablaUsuarios->horizontalHeaderItem(5);
+        ___qtablewidgetitem5->setText(QApplication::translate("gerente", "Edad", nullptr));
         label_2->setText(QApplication::translate("gerente", "Buscar Usuarios", nullptr));
-        label_3->setText(QApplication::translate("gerente", "ID: ", nullptr));
+        lineEdit->setPlaceholderText(QApplication::translate("gerente", "ID DE EMPLEADO", nullptr));
         label_4->setText(QString());
     } // retranslateUi
 
