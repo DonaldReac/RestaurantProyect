@@ -27,12 +27,12 @@ gerente::gerente(QWidget *parent) :
             ui->TablaUsuarios->insertRow(ui->TablaUsuarios->rowCount());
 
             ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,0,new QTableWidgetItem(idusu));
-
             ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,1,new QTableWidgetItem(nombre));
             ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,2,new QTableWidgetItem(apellidom));
             ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,3,new QTableWidgetItem(Apellidop));
             ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,4,new QTableWidgetItem(puesto));
             ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,5,new QTableWidgetItem(edad));
+
 
     }
 }
@@ -45,4 +45,36 @@ gerente::~gerente()
 void gerente::on_pushButton_2_clicked()
 {
 
+}
+
+
+void gerente::on_lineEdit_textChanged(const QString &arg1)
+{
+    ui->TablaUsuarios->setRowCount(0);
+    ui->TablaUsuarios->setColumnCount(0);
+    QStringList titulos;
+    ui->TablaUsuarios->setColumnCount(6);
+    titulos<< "Id" << "Nombre" <<"Apellido Materno" << "Apellido Paterno" << "Puesto"<<"Edad";
+    ui->TablaUsuarios->setHorizontalHeaderLabels(titulos);
+
+    QSqlQuery Buscar;
+    Buscar.prepare("select * from usuario where idUsuario like '%"+arg1+"%'");
+    Buscar.exec();
+    while(Buscar.next()){
+        QString idusu=Buscar.value(0).toString();
+        QString nombre=Buscar.value(1).toString();
+        QString apellidom=Buscar.value(2).toString();
+        QString Apellidop=Buscar.value(3).toString();
+        QString puesto=Buscar.value(4).toString();
+        QString edad=Buscar.value(6).toString();
+
+        ui->TablaUsuarios->insertRow(ui->TablaUsuarios->rowCount());
+
+        ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,0,new QTableWidgetItem(idusu));
+        ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,1,new QTableWidgetItem(nombre));
+        ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,2,new QTableWidgetItem(apellidom));
+        ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,3,new QTableWidgetItem(Apellidop));
+        ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,4,new QTableWidgetItem(puesto));
+        ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,5,new QTableWidgetItem(edad));
+                        }
 }
