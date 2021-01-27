@@ -16,13 +16,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    gerente.cpp \
     main.cpp \
     iniciosesion.cpp
 
 HEADERS += \
+    gerente.h \
     iniciosesion.h
 
 FORMS += \
+    gerente.ui \
     iniciosesion.ui
 
 # Default rules for deployment.

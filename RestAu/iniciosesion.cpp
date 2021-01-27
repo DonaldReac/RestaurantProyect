@@ -1,5 +1,6 @@
 #include "iniciosesion.h"
 #include "ui_iniciosesion.h"
+#include "gerente.h"
 
 InicioSesion::InicioSesion(QWidget *parent)
     : QMainWindow(parent)
@@ -31,9 +32,10 @@ void InicioSesion::on_pushButton_clicked()
     conexion.open();
     QString ID;
     QString Contra;
-
-    ID = ui->CodigoID->text();
-    Contra = ui->Contrasena->text();
+    gerente app(this);
+    app.exec();
+    //ID = ui->CodigoID->text();
+    //Contra = ui->Contrasena->text();
 
     if(ID == ""){
         //Error por si no ha ingresado nada en el campo
