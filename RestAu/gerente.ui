@@ -23,8 +23,9 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(77, 80, 93);
-
+    <string notr="true">QWidget{
+	background-color: #C0C4CF;
+}
 </string>
    </property>
    <widget class="QWidget" name="page">
@@ -54,7 +55,7 @@ QPushButton:hover
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="Img.qrc">:/img/Iconos/logo.jpeg</pixmap>
+      <pixmap resource="Img.qrc">:/img/Iconos/logosinfondo1.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
