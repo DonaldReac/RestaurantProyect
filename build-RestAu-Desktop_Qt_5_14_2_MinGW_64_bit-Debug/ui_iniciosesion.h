@@ -38,6 +38,8 @@ public:
     QRadioButton *radioButton_3;
     QRadioButton *radioButton_4;
     QLabel *label_5;
+    QLabel *label_3;
+    QLineEdit *Contrasena;
     QWidget *widget_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -130,6 +132,12 @@ public:
         label_5 = new QLabel(widget);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setGeometry(QRect(220, 120, 101, 31));
+        label_3 = new QLabel(widget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(70, 310, 101, 16));
+        Contrasena = new QLineEdit(widget);
+        Contrasena->setObjectName(QString::fromUtf8("Contrasena"));
+        Contrasena->setGeometry(QRect(170, 300, 241, 41));
         widget_2 = new QWidget(centralwidget);
         widget_2->setObjectName(QString::fromUtf8("widget_2"));
         widget_2->setGeometry(QRect(550, 20, 451, 411));
@@ -161,6 +169,7 @@ public:
         radioButton_3->setText(QCoreApplication::translate("InicioSesion", "Cocinero", nullptr));
         radioButton_4->setText(QCoreApplication::translate("InicioSesion", "Gerente", nullptr));
         label_5->setText(QCoreApplication::translate("InicioSesion", "\302\277Quien eres?", nullptr));
+        label_3->setText(QCoreApplication::translate("InicioSesion", " Contrase\303\261a: ", nullptr));
     } // retranslateUi
 
 };

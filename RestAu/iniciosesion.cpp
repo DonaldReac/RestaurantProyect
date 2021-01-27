@@ -30,10 +30,10 @@ void InicioSesion::on_pushButton_clicked()
 {
     conexion.open();
     QString ID;
-    QString Puesto;
+    QString Contra;
 
     ID = ui->CodigoID->text();
-    //Puesto = ui->Puesto->text();
+    Contra = ui->Contrasena->text();
 
     if(ID == ""){
         //Error por si no ha ingresado nada en el campo
@@ -41,24 +41,24 @@ void InicioSesion::on_pushButton_clicked()
         QMessageBox::critical(this,"Error","Por favor, inserte su ID.","Aceptar");
         return;
     }
-    /*
-    if(Puesto == ""){
+
+    if(Contra == ""){
         //Error por si no ha ingresado nada en el campo
         //qDebug() << "Por favor ingrese una opcion. ";
-        QMessageBox::critical(this,"Error","Por favor, inserte su puesto.","Aceptar");
+        QMessageBox::critical(this,"Error","Por favor, inserte su contraseña.","Aceptar");
         return;
     }
-    */
+
     //Se va a hacer el query de busqueda dentro del sistema
     QSqlQuery Login;
-    Login.prepare("Select idusuario, puesto from usuario where idusuario='"+ID+"';");
+    Login.prepare("Select idusuario, password from usuario where idusuario='"+ID+"' and password ='"+Contra+"' ;");
     Login.exec();
     //busca dentro del query
     if(Login.next()){
       //  qDebug() << "ID : " << Login.value(0);
-      //  qDebug() << "Puesto: " << Login.value(1);
+      //  qDebug() << "Password: " << Login.value(1);
           //Si los valores coinciden tanto en la base como en los line edit
-        if(Login.value(0) == ID){
+        if(Login.value(0) == ID && Login.value(1) == Contra){
             qDebug() << "Pudiste entrar al sistema. Bienvenido." ;
         }
     }
