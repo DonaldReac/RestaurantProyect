@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Gerente</class>
+ <widget class="QDialog" name="Gerente">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>636</width>
+    <height>435</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">.QStackedWidget
+{
+	background-color: rgb(77, 80, 93);
+}</string>
+  </property>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>201</width>
+     <height>441</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(77, 80, 93);</string>
+   </property>
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <widget class="QWidget" name="page"/>
+   <widget class="QWidget" name="page_2">
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+border-style: outset;
+background-color: rgb(216, 223, 233);
+color: rgb(0, 0, 0);
+border-bottom : 1px solid yelow;
+}
+
+QPushButton:hover
+{
+   
+	background-color: rgb(185, 115, 16);
+}
+</string>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>30</y>
+       <width>101</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="Img.qrc">:/img/Iconos/trabajando (1).png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Buscar">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>160</y>
+       <width>201</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">  
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="Img.qrc">
+       <normaloff>:/img/Iconos/lupa.png</normaloff>:/img/Iconos/lupa.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>35</width>
+       <height>35</height>
+      </size>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>-1</y>
+     <width>441</width>
+     <height>441</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <widget class="QTableWidget" name="Usuarios">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>120</y>
+      <width>411</width>
+      <height>192</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="Img.qrc"/>
+ </resources>
+ <connections/>
+</ui>

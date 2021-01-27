@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <qdebug.h>
+#include "gerente.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class InicioSesion; }
