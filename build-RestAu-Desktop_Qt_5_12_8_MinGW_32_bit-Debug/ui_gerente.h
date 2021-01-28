@@ -52,7 +52,9 @@ public:
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
         stackedWidget->setGeometry(QRect(0, -10, 151, 481));
         stackedWidget->setStyleSheet(QString::fromUtf8("QWidget{\n"
-"	background-color: #C0C4CF;\n"
+"background-color: #C0C4CF;\n"
+"border-right: 1px solid;\n"
+"\n"
 "}\n"
 ""));
         page = new QWidget();
@@ -92,13 +94,14 @@ public:
         Inventario = new QPushButton(page);
         Inventario->setObjectName(QString::fromUtf8("Inventario"));
         Inventario->setGeometry(QRect(0, 310, 151, 51));
+        Inventario->setLayoutDirection(Qt::LeftToRight);
         QIcon icon3;
         icon3.addFile(QString::fromUtf8(":/img/Iconos/inventario.png"), QSize(), QIcon::Normal, QIcon::Off);
         Inventario->setIcon(icon3);
         Inventario->setIconSize(QSize(35, 35));
         pushButton = new QPushButton(page);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(0, 432, 151, 41));
+        pushButton->setGeometry(QRect(0, 422, 151, 51));
         pushButton->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "  border:0px solid gray;\n"
@@ -116,7 +119,7 @@ public:
         pushButton->setIconSize(QSize(30, 30));
         label = new QLabel(page);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(0, 20, 161, 81));
+        label->setGeometry(QRect(0, 20, 151, 81));
         label->setPixmap(QPixmap(QString::fromUtf8(":/img/Iconos/logosinfondo1.png")));
         label->setScaledContents(true);
         stackedWidget->addWidget(page);
@@ -174,12 +177,13 @@ public:
         __qtablewidgetitem5->setForeground(brush);
         TablaUsuarios->setHorizontalHeaderItem(5, __qtablewidgetitem5);
         TablaUsuarios->setObjectName(QString::fromUtf8("TablaUsuarios"));
-        TablaUsuarios->setGeometry(QRect(10, 100, 551, 231));
+        TablaUsuarios->setGeometry(QRect(10, 120, 551, 271));
         TablaUsuarios->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"\n"
 ""));
         label_2 = new QLabel(page_3);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(210, 20, 181, 31));
+        label_2->setGeometry(QRect(210, 40, 181, 31));
         QFont font;
         font.setFamily(QString::fromUtf8("Caviar Dreams"));
         font.setPointSize(18);
@@ -190,11 +194,13 @@ public:
         label_2->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255,0);"));
         lineEdit = new QLineEdit(page_3);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(70, 60, 461, 31));
+        lineEdit->setGeometry(QRect(70, 80, 461, 31));
+        lineEdit->setStyleSheet(QString::fromUtf8("border: 1px solid; \n"
+"border-radius: 10px;"));
         lineEdit->setAlignment(Qt::AlignCenter);
         label_4 = new QLabel(page_3);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(250, 310, 331, 211));
+        label_4->setGeometry(QRect(200, 340, 381, 211));
         label_4->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255,0);"));
         label_4->setPixmap(QPixmap(QString::fromUtf8(":/img/Iconos/hot-cakes-con-miel-y-frutos-rojos.png")));
         label_4->setScaledContents(true);
@@ -207,6 +213,8 @@ public:
         page_4 = new QWidget();
         page_4->setObjectName(QString::fromUtf8("page_4"));
         stackedWidget_2->addWidget(page_4);
+        stackedWidget_2->raise();
+        stackedWidget->raise();
 
         retranslateUi(gerente);
 

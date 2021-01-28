@@ -24,7 +24,9 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget{
-	background-color: #C0C4CF;
+background-color: #C0C4CF;
+border-right: 1px solid;
+
 }
 </string>
    </property>
@@ -120,6 +122,9 @@ QPushButton:hover
        <height>51</height>
       </rect>
      </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
      <property name="text">
       <string>Inventario</string>
      </property>
@@ -138,9 +143,9 @@ QPushButton:hover
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>432</y>
+       <y>422</y>
        <width>151</width>
-       <height>41</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -175,7 +180,7 @@ QPushButton:hover
       <rect>
        <x>0</x>
        <y>20</y>
-       <width>161</width>
+       <width>151</width>
        <height>81</height>
       </rect>
      </property>
@@ -226,13 +231,14 @@ QPushButton:hover
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>100</y>
+       <y>120</y>
        <width>551</width>
-       <height>231</height>
+       <height>271</height>
       </rect>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);
+
 </string>
      </property>
      <column>
@@ -366,7 +372,7 @@ QPushButton:hover
      <property name="geometry">
       <rect>
        <x>210</x>
-       <y>20</y>
+       <y>40</y>
        <width>181</width>
        <height>31</height>
       </rect>
@@ -391,10 +397,14 @@ QPushButton:hover
      <property name="geometry">
       <rect>
        <x>70</x>
-       <y>60</y>
+       <y>80</y>
        <width>461</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid; 
+border-radius: 10px;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -406,9 +416,9 @@ QPushButton:hover
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>250</x>
-       <y>310</y>
-       <width>331</width>
+       <x>200</x>
+       <y>340</y>
+       <width>381</width>
        <height>211</height>
       </rect>
      </property>
@@ -435,6 +445,8 @@ QPushButton:hover
    </widget>
    <widget class="QWidget" name="page_4"/>
   </widget>
+  <zorder>stackedWidget_2</zorder>
+  <zorder>stackedWidget</zorder>
  </widget>
  <resources>
   <include location="Img.qrc"/>

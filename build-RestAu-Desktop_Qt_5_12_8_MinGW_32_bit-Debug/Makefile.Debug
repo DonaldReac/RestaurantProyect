@@ -113,6 +113,7 @@ debug/qrc_Img.cpp: ../RestAu/Img.qrc \
 		../RestAu/img/Iconos/editar.png \
 		../RestAu/img/Iconos/hot-cakes-tradicionales.png \
 		../RestAu/img/Iconos/lupa.png \
+		../RestAu/img/Iconos/hot-cakes-con-miel-y-frutos-rojos.png \
 		../RestAu/img/Iconos/anadir.png \
 		../RestAu/img/Iconos/descargar.jpg \
 		../RestAu/img/Iconos/iconfinder_person_3_1376034.png \
@@ -514,7 +515,12 @@ debug/gerente.o: ../RestAu/gerente.cpp ../RestAu/gerente.h \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtSql/qsqlquery.h \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtWidgets/QMessageBox \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtWidgets/qmessagebox.h \
-		ui_gerente.h
+		ui_gerente.h \
+		../RestAu/iniciosesion.h \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtWidgets/QMainWindow \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtWidgets/qmainwindow.h \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/include/QtGui/qicon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\gerente.o ..\RestAu\gerente.cpp
 
 debug/main.o: ../RestAu/main.cpp ../RestAu/iniciosesion.h \

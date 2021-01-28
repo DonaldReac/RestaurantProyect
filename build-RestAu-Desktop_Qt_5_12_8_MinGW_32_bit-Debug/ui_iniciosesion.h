@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
@@ -33,17 +34,19 @@ public:
     QStackedWidget *stackedWidget;
     QWidget *page;
     QLabel *label_3;
-    QRadioButton *radioButton_4;
     QLabel *label_2;
-    QRadioButton *radioButton;
     QLineEdit *Contrasena;
     QLabel *label_5;
     QLabel *label;
     QPushButton *pushButton;
-    QRadioButton *radioButton_3;
     QLineEdit *CodigoID;
-    QRadioButton *radioButton_2;
     QLabel *label_6;
+    QWidget *widget1;
+    QHBoxLayout *horizontalLayout;
+    QRadioButton *Mesero;
+    QRadioButton *Anfitrion;
+    QRadioButton *Cocinero;
+    QRadioButton *Gerente;
     QWidget *page_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -101,24 +104,12 @@ public:
         label_3->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "font:12pt  \"CaviarDreams_BoldItalic\";\n"
 "}"));
-        radioButton_4 = new QRadioButton(page);
-        radioButton_4->setObjectName(QString::fromUtf8("radioButton_4"));
-        radioButton_4->setGeometry(QRect(390, 150, 101, 17));
-        QIcon icon;
-        icon.addFile(QString::fromUtf8("img/Iconos/iconfinder_person_3_1376034.png"), QSize(), QIcon::Normal, QIcon::Off);
-        radioButton_4->setIcon(icon);
         label_2 = new QLabel(page);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(160, 180, 21, 21));
         label_2->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "font:12pt  \"CaviarDreams_BoldItalic\";\n"
 "}"));
-        radioButton = new QRadioButton(page);
-        radioButton->setObjectName(QString::fromUtf8("radioButton"));
-        radioButton->setGeometry(QRect(10, 150, 101, 16));
-        QIcon icon1;
-        icon1.addFile(QString::fromUtf8("img/Iconos/Waiter_Male_Light.png"), QSize(), QIcon::Normal, QIcon::Off);
-        radioButton->setIcon(icon1);
         Contrasena = new QLineEdit(page);
         Contrasena->setObjectName(QString::fromUtf8("Contrasena"));
         Contrasena->setGeometry(QRect(150, 270, 241, 31));
@@ -127,9 +118,10 @@ public:
 "border: 1px solid #0B253A;;\n"
 "    border-radius:10px;\n"
 "    padding: 0 8px;"));
+        Contrasena->setEchoMode(QLineEdit::Password);
         label_5 = new QLabel(page);
         label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setGeometry(QRect(210, 110, 101, 31));
+        label_5->setGeometry(QRect(200, 90, 101, 31));
         label_5->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "font:12pt  \"CaviarDreams_BoldItalic\";\n"
 "color:#0B253A;\n"
@@ -157,12 +149,6 @@ public:
 "QPushButton:focus:pressed{ background-color:white ;\n"
 "color: black; }\n"
 ""));
-        radioButton_3 = new QRadioButton(page);
-        radioButton_3->setObjectName(QString::fromUtf8("radioButton_3"));
-        radioButton_3->setGeometry(QRect(270, 150, 111, 17));
-        QIcon icon2;
-        icon2.addFile(QString::fromUtf8("img/Iconos/iconfinder_142-man-cook-2_3099395.png"), QSize(), QIcon::Normal, QIcon::Off);
-        radioButton_3->setIcon(icon2);
         CodigoID = new QLineEdit(page);
         CodigoID->setObjectName(QString::fromUtf8("CodigoID"));
         CodigoID->setGeometry(QRect(150, 210, 241, 31));
@@ -171,16 +157,60 @@ public:
 "border: 1px solid #0B253A;;\n"
 "    border-radius:10px;\n"
 "    padding: 0 8px;"));
-        radioButton_2 = new QRadioButton(page);
-        radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
-        radioButton_2->setGeometry(QRect(120, 150, 151, 17));
-        QIcon icon3;
-        icon3.addFile(QString::fromUtf8("img/Iconos/Waiter_Male_Dark.png"), QSize(), QIcon::Normal, QIcon::Off);
-        radioButton_2->setIcon(icon3);
         label_6 = new QLabel(page);
         label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setGeometry(QRect(70, 30, 331, 71));
+        label_6->setGeometry(QRect(70, 10, 331, 71));
         label_6->setPixmap(QPixmap(QString::fromUtf8(":/img/Iconos/logosinfondo1.png")));
+        widget1 = new QWidget(page);
+        widget1->setObjectName(QString::fromUtf8("widget1"));
+        widget1->setGeometry(QRect(20, 130, 443, 32));
+        horizontalLayout = new QHBoxLayout(widget1);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        Mesero = new QRadioButton(widget1);
+        Mesero->setObjectName(QString::fromUtf8("Mesero"));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8("img/Iconos/Waiter_Male_Light.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8(":/img/Iconos/Waiter_Male_Light.png"), QSize(), QIcon::Active, QIcon::Off);
+        icon.addFile(QString::fromUtf8(":/img/Iconos/Waiter_Male_Light.png"), QSize(), QIcon::Selected, QIcon::Off);
+        Mesero->setIcon(icon);
+        Mesero->setIconSize(QSize(30, 30));
+
+        horizontalLayout->addWidget(Mesero);
+
+        Anfitrion = new QRadioButton(widget1);
+        Anfitrion->setObjectName(QString::fromUtf8("Anfitrion"));
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8("img/Iconos/Waiter_Male_Dark.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QString::fromUtf8(":/img/Iconos/Waiter_Male_Dark.png"), QSize(), QIcon::Active, QIcon::On);
+        icon1.addFile(QString::fromUtf8(":/img/Iconos/Waiter_Male_Dark.png"), QSize(), QIcon::Selected, QIcon::On);
+        Anfitrion->setIcon(icon1);
+        Anfitrion->setIconSize(QSize(30, 30));
+
+        horizontalLayout->addWidget(Anfitrion);
+
+        Cocinero = new QRadioButton(widget1);
+        Cocinero->setObjectName(QString::fromUtf8("Cocinero"));
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8("img/Iconos/iconfinder_142-man-cook-2_3099395.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QString::fromUtf8(":/img/Iconos/iconfinder_142-man-cook-2_3099395.png"), QSize(), QIcon::Active, QIcon::On);
+        icon2.addFile(QString::fromUtf8(":/img/Iconos/iconfinder_142-man-cook-2_3099395.png"), QSize(), QIcon::Selected, QIcon::On);
+        Cocinero->setIcon(icon2);
+        Cocinero->setIconSize(QSize(30, 30));
+
+        horizontalLayout->addWidget(Cocinero);
+
+        Gerente = new QRadioButton(widget1);
+        Gerente->setObjectName(QString::fromUtf8("Gerente"));
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8("img/Iconos/iconfinder_person_3_1376034.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon3.addFile(QString::fromUtf8(":/img/Iconos/iconfinder_person_3_1376034.png"), QSize(), QIcon::Active, QIcon::On);
+        icon3.addFile(QString::fromUtf8(":/img/Iconos/iconfinder_person_3_1376034.png"), QSize(), QIcon::Selected, QIcon::On);
+        Gerente->setIcon(icon3);
+        Gerente->setIconSize(QSize(30, 30));
+
+        horizontalLayout->addWidget(Gerente);
+
         stackedWidget->addWidget(page);
         page_2 = new QWidget();
         page_2->setObjectName(QString::fromUtf8("page_2"));
@@ -204,15 +234,15 @@ public:
         InicioSesion->setWindowTitle(QApplication::translate("InicioSesion", "InicioSesion", nullptr));
         label_4->setText(QString());
         label_3->setText(QApplication::translate("InicioSesion", " Contrase\303\261a: ", nullptr));
-        radioButton_4->setText(QApplication::translate("InicioSesion", "Gerente", nullptr));
         label_2->setText(QApplication::translate("InicioSesion", "ID:", nullptr));
-        radioButton->setText(QApplication::translate("InicioSesion", "Mesero", nullptr));
         label_5->setText(QApplication::translate("InicioSesion", "\302\277Quien eres?", nullptr));
         label->setText(QString());
         pushButton->setText(QApplication::translate("InicioSesion", "Ingresar", nullptr));
-        radioButton_3->setText(QApplication::translate("InicioSesion", "Cocinero", nullptr));
-        radioButton_2->setText(QApplication::translate("InicioSesion", "Administracion", nullptr));
         label_6->setText(QString());
+        Mesero->setText(QApplication::translate("InicioSesion", "Mesero", nullptr));
+        Anfitrion->setText(QApplication::translate("InicioSesion", "Anfitrion", nullptr));
+        Cocinero->setText(QApplication::translate("InicioSesion", "Cocinero", nullptr));
+        Gerente->setText(QApplication::translate("InicioSesion", "Gerente", nullptr));
     } // retranslateUi
 
 };

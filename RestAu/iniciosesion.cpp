@@ -121,6 +121,7 @@ void InicioSesion::on_pushButton_clicked()
                       //   qDebug() << "Pudiste entrar al sistema. Bienvenido." ;
                   gerente *aux= new gerente();
                   aux->show();
+                  close();
               }
         }
     }
