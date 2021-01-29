@@ -21,6 +21,13 @@ public:
 
 private slots:
     void on_pushButton_2_clicked();
+    void on_lineEdit_textChanged(const QString &arg1);
+
+    void on_pushButton_clicked();
+
+    void on_Buscar_clicked();
+
+    void on_Editar_clicked();
 
 private:
     Ui::gerente *ui;
