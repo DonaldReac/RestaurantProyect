@@ -1,50 +1,99 @@
 #include "gerente.h"
 #include "ui_gerente.h"
-#include "QPushButton"
+#include "iniciosesion.h"
 
-Gerente::Gerente(QWidget *parent) :
+gerente::gerente(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::Gerente)
+    ui(new Ui::gerente)
 {
     ui->setupUi(this);
 
-    conexion = QSqlDatabase::addDatabase("QODBC");
-    conexion.setPort(3306);
-    conexion.setHostName("root");
-    conexion.setPassword("");
-    conexion.setDatabaseName("restaurant");
-    if(conexion.open())
-        qDebug()<< "Conexión EXITOSA";
-    else
-        qDebug()<< "Conexión FALLIDA";
 
-    conexion.close();
+    QStringList titulos;
+    ui->TablaUsuarios->setColumnCount(6);
+    titulos<< "Id" << "Nombre" <<"Apellido Paterno" << "Apellido Materno" << "Puesto"<<"Edad";
+    ui->TablaUsuarios->setHorizontalHeaderLabels(titulos);
+    QSqlQuery MatAtra;
+    MatAtra.prepare("select * from usuario");
+    MatAtra.exec();
+    while(MatAtra.next()){
 
-    QSqlQuery usuarios;
-    usuarios.prepare("select ");
-    usuarios.exec();
-    while(usuarios.next()){
-        if(usuarios.value(3).toString()!="Finalizado" && usuarios.value(3).toString()!="En curso" ){
-            QString idmat=usuarios.value(0).toString();
-            QString nombremat=usuarios.value(1).toString();
-            QString periodo=usuarios.value(2).toString();
-            QString estado=usuarios.value(3).toString();
-            QString periodoAct=usuarios.value(4).toString();
+            QString idusu=MatAtra.value(0).toString();
+            QString nombre=MatAtra.value(1).toString();
+            QString apellidom=MatAtra.value(2).toString();
+            QString Apellidop=MatAtra.value(3).toString();
+            QString puesto=MatAtra.value(4).toString();
+            QString edad=MatAtra.value(6).toString();
 
-            ui->Usuarios->insertRow(ui->Usuarios->rowCount());
+            ui->TablaUsuarios->insertRow(ui->TablaUsuarios->rowCount());
 
-            ui->Usuarios->setItem(ui->Usuarios->rowCount()-1,0,new QTableWidgetItem(idmat));
+            ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,0,new QTableWidgetItem(idusu));
+            ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,1,new QTableWidgetItem(nombre));
+            ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,2,new QTableWidgetItem(apellidom));
+            ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,3,new QTableWidgetItem(Apellidop));
+            ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,4,new QTableWidgetItem(puesto));
+            ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,5,new QTableWidgetItem(edad));
 
-            ui->Usuarios->setItem(ui->Usuarios->rowCount()-1,1,new QTableWidgetItem(nombremat));
-            ui->Usuarios->setItem(ui->Usuarios->rowCount()-1,2,new QTableWidgetItem(periodo));
-            ui->Usuarios->setItem(ui->Usuarios->rowCount()-1,3,new QTableWidgetItem(estado));
-            ui->Usuarios->setItem(ui->Usuarios->rowCount()-1,4,new QTableWidgetItem(periodoAct));
-        }
+
     }
+}
+
+gerente::~gerente()
+{
+    delete ui;
+}
+
+void gerente::on_pushButton_2_clicked()
+{
 
 }
 
-Gerente::~Gerente()
+
+void gerente::on_lineEdit_textChanged(const QString &arg1)
 {
-    delete ui;
+    ui->TablaUsuarios->setRowCount(0);
+    ui->TablaUsuarios->setColumnCount(0);
+
+    QStringList titulos;
+    ui->TablaUsuarios->setColumnCount(6);
+    titulos<< "Id" << "Nombre" <<"Apellido Paterno" << "Apellido Materno" << "Puesto"<<"Edad";
+    ui->TablaUsuarios->setHorizontalHeaderLabels(titulos);
+
+    QSqlQuery Buscar;
+    Buscar.prepare("select * from usuario where idUsuario like '%"+arg1+"%'");
+    Buscar.exec();
+    while(Buscar.next()){
+        QString idusu=Buscar.value(0).toString();
+        QString nombre=Buscar.value(1).toString();
+        QString apellidom=Buscar.value(2).toString();
+        QString Apellidop=Buscar.value(3).toString();
+        QString puesto=Buscar.value(4).toString();
+        QString edad=Buscar.value(6).toString();
+
+        ui->TablaUsuarios->insertRow(ui->TablaUsuarios->rowCount());
+
+        ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,0,new QTableWidgetItem(idusu));
+        ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,1,new QTableWidgetItem(nombre));
+        ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,2,new QTableWidgetItem(apellidom));
+        ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,3,new QTableWidgetItem(Apellidop));
+        ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,4,new QTableWidgetItem(puesto));
+        ui->TablaUsuarios->setItem(ui->TablaUsuarios->rowCount()-1,5,new QTableWidgetItem(edad));
+                        }
+}
+
+void gerente::on_pushButton_clicked()
+{
+    close();
+    InicioSesion *regresa= new InicioSesion();
+    regresa->show();
+}
+
+void gerente::on_Buscar_clicked()
+{
+    ui->stackedWidget_2->setCurrentIndex(0);
+}
+
+void gerente::on_Editar_clicked()
+{
+    ui->stackedWidget_2->setCurrentIndex(1);
 }

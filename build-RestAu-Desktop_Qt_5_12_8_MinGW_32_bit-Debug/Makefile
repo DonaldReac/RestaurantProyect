@@ -232,8 +232,10 @@ Makefile: ../RestAu/RestAu.pro C:/Qt/Qt5.12.8/5.12.8/mingw73_32/mkspecs/win32-g+
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/mkspecs/features/yacc.prf \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/mkspecs/features/lex.prf \
 		../RestAu/RestAu.pro \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/lib/Qt5PrintSupport.prl \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/lib/Qt5Widgets.prl \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/lib/Qt5Gui.prl \
+		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/lib/Qt5Sql.prl \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/lib/Qt5Core.prl \
 		C:/Qt/Qt5.12.8/5.12.8/mingw73_32/lib/qtmain.prl
 	$(QMAKE) -o Makefile ..\RestAu\RestAu.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -406,8 +408,10 @@ C:/Qt/Qt5.12.8/5.12.8/mingw73_32/mkspecs/features/exceptions.prf:
 C:/Qt/Qt5.12.8/5.12.8/mingw73_32/mkspecs/features/yacc.prf:
 C:/Qt/Qt5.12.8/5.12.8/mingw73_32/mkspecs/features/lex.prf:
 ../RestAu/RestAu.pro:
+C:/Qt/Qt5.12.8/5.12.8/mingw73_32/lib/Qt5PrintSupport.prl:
 C:/Qt/Qt5.12.8/5.12.8/mingw73_32/lib/Qt5Widgets.prl:
 C:/Qt/Qt5.12.8/5.12.8/mingw73_32/lib/Qt5Gui.prl:
+C:/Qt/Qt5.12.8/5.12.8/mingw73_32/lib/Qt5Sql.prl:
 C:/Qt/Qt5.12.8/5.12.8/mingw73_32/lib/Qt5Core.prl:
 C:/Qt/Qt5.12.8/5.12.8/mingw73_32/lib/qtmain.prl:
 qmake: FORCE

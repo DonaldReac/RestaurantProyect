@@ -12,15 +12,14 @@
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
-<<<<<<< Updated upstream
-=======
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
->>>>>>> Stashed changes
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
+#include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -30,21 +29,25 @@ class Ui_InicioSesion
 {
 public:
     QWidget *centralwidget;
-<<<<<<< Updated upstream
-=======
     QWidget *widget;
-    QLabel *label;
-    QLabel *label_2;
-    QLineEdit *CodigoID;
-    QPushButton *pushButton;
     QLabel *label_4;
-    QRadioButton *radioButton;
-    QRadioButton *radioButton_2;
-    QRadioButton *radioButton_3;
-    QRadioButton *radioButton_4;
+    QStackedWidget *stackedWidget;
+    QWidget *page;
+    QLabel *label_3;
+    QLabel *label_2;
+    QLineEdit *Contrasena;
     QLabel *label_5;
-    QWidget *widget_2;
->>>>>>> Stashed changes
+    QLabel *label;
+    QPushButton *pushButton;
+    QLineEdit *CodigoID;
+    QLabel *label_6;
+    QWidget *widget1;
+    QHBoxLayout *horizontalLayout;
+    QRadioButton *Mesero;
+    QRadioButton *Anfitrion;
+    QRadioButton *Cocinero;
+    QRadioButton *Gerente;
+    QWidget *page_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -52,24 +55,20 @@ public:
     {
         if (InicioSesion->objectName().isEmpty())
             InicioSesion->setObjectName(QString::fromUtf8("InicioSesion"));
-        InicioSesion->resize(1024, 482);
+        InicioSesion->resize(554, 482);
         centralwidget = new QWidget(InicioSesion);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-<<<<<<< Updated upstream
-        InicioSesion->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(InicioSesion);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
-=======
         widget = new QWidget(centralwidget);
         widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(20, 20, 531, 423));
+        widget->setGeometry(QRect(10, 12, 531, 441));
         widget->setStyleSheet(QString::fromUtf8("QWidget{\n"
-"	background-color: #4D505D\n"
+"	background-color: #0B253A\n"
 "}\n"
 "\n"
 "QLabel{\n"
-"	font:12pt  \"Franklin Gothic Book\";\n"
-"	color: white;\n"
+"	font:\"CaviarDreams_BoldItalic\";\n"
+"	color:#0B253A;\n"
+"\n"
 "}\n"
 "\n"
 "QLineEdit{\n"
@@ -82,75 +81,144 @@ public:
 "\n"
 "QRadioButton{\n"
 "	border: none;\n"
-"	color: white;\n"
-"	font: 11pt \"Franklin Gothic Book\";\n"
+"	color:#0B253A;\n"
+"font:11pt  \"CaviarDreams_BoldItalic\";\n"
+"}\n"
+"\n"
+""));
+        label_4 = new QLabel(widget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(230, 100, 47, 13));
+        stackedWidget = new QStackedWidget(widget);
+        stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
+        stackedWidget->setGeometry(QRect(20, 20, 491, 381));
+        stackedWidget->setStyleSheet(QString::fromUtf8("QWidget{\n"
+"	background-color: #C0C4CF;\n"
 "}\n"
 ""));
-        label = new QLabel(widget);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(220, 50, 111, 51));
-        label_2 = new QLabel(widget);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(100, 210, 41, 91));
-        label_2->setStyleSheet(QString::fromUtf8("Qlabel_2{\n"
-"		font: 30pt \"Sunny Winter\";\n"
-"		color: white;\n"
+        page = new QWidget();
+        page->setObjectName(QString::fromUtf8("page"));
+        label_3 = new QLabel(page);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(150, 250, 101, 16));
+        label_3->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"font:12pt  \"CaviarDreams_BoldItalic\";\n"
 "}"));
-        CodigoID = new QLineEdit(widget);
-        CodigoID->setObjectName(QString::fromUtf8("CodigoID"));
-        CodigoID->setGeometry(QRect(170, 240, 241, 41));
-        pushButton = new QPushButton(widget);
+        label_2 = new QLabel(page);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(160, 180, 21, 21));
+        label_2->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"font:12pt  \"CaviarDreams_BoldItalic\";\n"
+"}"));
+        Contrasena = new QLineEdit(page);
+        Contrasena->setObjectName(QString::fromUtf8("Contrasena"));
+        Contrasena->setGeometry(QRect(150, 270, 241, 31));
+        Contrasena->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 10);\n"
+"font:12pt  \"CaviarDreams_BoldItalic\";\n"
+"border: 1px solid #0B253A;;\n"
+"    border-radius:10px;\n"
+"    padding: 0 8px;"));
+        Contrasena->setEchoMode(QLineEdit::Password);
+        label_5 = new QLabel(page);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setGeometry(QRect(200, 90, 101, 31));
+        label_5->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"font:12pt  \"CaviarDreams_BoldItalic\";\n"
+"color:#0B253A;\n"
+"}"));
+        label = new QLabel(page);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(200, -10, 111, 51));
+        pushButton = new QPushButton(page);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(210, 380, 141, 23));
-        pushButton->setStyleSheet(QString::fromUtf8("QPushButton{\n"
-"	background-color: white;\n"
-"	border: none;\n"
-"	font: 11pt \"Franklin Gothic Book\";\n"
+        pushButton->setGeometry(QRect(200, 330, 126, 31));
+        pushButton->setStyleSheet(QString::fromUtf8("QPushButton{;\n"
+"background-color: #0B253A;\n"
+"    border-style: outset;\n"
+"    border-radius: 15px;\n"
+"    border-color: #0B253A;\n"
+"    min-width: 6em;;\n"
+"	font: 12pt \"Franklin Gothic Book\";\n"
+"color:white;\n"
 "}\n"
 "\n"
 "QPushButton:Hover{\n"
 "	border: 2px solid rgb(77, 188, 198);\n"
-"}"));
-        label_4 = new QLabel(widget);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(230, 100, 47, 13));
-        radioButton = new QRadioButton(widget);
-        radioButton->setObjectName(QString::fromUtf8("radioButton"));
-        radioButton->setGeometry(QRect(20, 120, 101, 101));
+"}\n"
+"\n"
+"QPushButton:focus:pressed{ background-color:white ;\n"
+"color: black; }\n"
+""));
+        CodigoID = new QLineEdit(page);
+        CodigoID->setObjectName(QString::fromUtf8("CodigoID"));
+        CodigoID->setGeometry(QRect(150, 210, 241, 31));
+        CodigoID->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 10);\n"
+"font:12pt  \"CaviarDreams_BoldItalic\";\n"
+"border: 1px solid #0B253A;;\n"
+"    border-radius:10px;\n"
+"    padding: 0 8px;"));
+        label_6 = new QLabel(page);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setGeometry(QRect(70, 10, 331, 71));
+        label_6->setPixmap(QPixmap(QString::fromUtf8(":/img/Iconos/logosinfondo1.png")));
+        widget1 = new QWidget(page);
+        widget1->setObjectName(QString::fromUtf8("widget1"));
+        widget1->setGeometry(QRect(20, 130, 443, 32));
+        horizontalLayout = new QHBoxLayout(widget1);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        Mesero = new QRadioButton(widget1);
+        Mesero->setObjectName(QString::fromUtf8("Mesero"));
         QIcon icon;
         icon.addFile(QString::fromUtf8("img/Iconos/Waiter_Male_Light.png"), QSize(), QIcon::Normal, QIcon::Off);
-        radioButton->setIcon(icon);
-        radioButton_2 = new QRadioButton(widget);
-        radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
-        radioButton_2->setGeometry(QRect(120, 160, 151, 17));
+        icon.addFile(QString::fromUtf8(":/img/Iconos/Waiter_Male_Light.png"), QSize(), QIcon::Active, QIcon::Off);
+        icon.addFile(QString::fromUtf8(":/img/Iconos/Waiter_Male_Light.png"), QSize(), QIcon::Selected, QIcon::Off);
+        Mesero->setIcon(icon);
+        Mesero->setIconSize(QSize(30, 30));
+
+        horizontalLayout->addWidget(Mesero);
+
+        Anfitrion = new QRadioButton(widget1);
+        Anfitrion->setObjectName(QString::fromUtf8("Anfitrion"));
         QIcon icon1;
         icon1.addFile(QString::fromUtf8("img/Iconos/Waiter_Male_Dark.png"), QSize(), QIcon::Normal, QIcon::Off);
-        radioButton_2->setIcon(icon1);
-        radioButton_3 = new QRadioButton(widget);
-        radioButton_3->setObjectName(QString::fromUtf8("radioButton_3"));
-        radioButton_3->setGeometry(QRect(280, 160, 111, 17));
+        icon1.addFile(QString::fromUtf8(":/img/Iconos/Waiter_Male_Dark.png"), QSize(), QIcon::Active, QIcon::On);
+        icon1.addFile(QString::fromUtf8(":/img/Iconos/Waiter_Male_Dark.png"), QSize(), QIcon::Selected, QIcon::On);
+        Anfitrion->setIcon(icon1);
+        Anfitrion->setIconSize(QSize(30, 30));
+
+        horizontalLayout->addWidget(Anfitrion);
+
+        Cocinero = new QRadioButton(widget1);
+        Cocinero->setObjectName(QString::fromUtf8("Cocinero"));
         QIcon icon2;
         icon2.addFile(QString::fromUtf8("img/Iconos/iconfinder_142-man-cook-2_3099395.png"), QSize(), QIcon::Normal, QIcon::Off);
-        radioButton_3->setIcon(icon2);
-        radioButton_4 = new QRadioButton(widget);
-        radioButton_4->setObjectName(QString::fromUtf8("radioButton_4"));
-        radioButton_4->setGeometry(QRect(400, 160, 101, 17));
+        icon2.addFile(QString::fromUtf8(":/img/Iconos/iconfinder_142-man-cook-2_3099395.png"), QSize(), QIcon::Active, QIcon::On);
+        icon2.addFile(QString::fromUtf8(":/img/Iconos/iconfinder_142-man-cook-2_3099395.png"), QSize(), QIcon::Selected, QIcon::On);
+        Cocinero->setIcon(icon2);
+        Cocinero->setIconSize(QSize(30, 30));
+
+        horizontalLayout->addWidget(Cocinero);
+
+        Gerente = new QRadioButton(widget1);
+        Gerente->setObjectName(QString::fromUtf8("Gerente"));
         QIcon icon3;
         icon3.addFile(QString::fromUtf8("img/Iconos/iconfinder_person_3_1376034.png"), QSize(), QIcon::Normal, QIcon::Off);
-        radioButton_4->setIcon(icon3);
-        label_5 = new QLabel(widget);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setGeometry(QRect(220, 120, 101, 31));
-        widget_2 = new QWidget(centralwidget);
-        widget_2->setObjectName(QString::fromUtf8("widget_2"));
-        widget_2->setGeometry(QRect(550, 20, 451, 411));
-        widget_2->setAutoFillBackground(false);
-        widget_2->setStyleSheet(QString::fromUtf8("image: url(:/img/Iconos/logo.jpeg);"));
+        icon3.addFile(QString::fromUtf8(":/img/Iconos/iconfinder_person_3_1376034.png"), QSize(), QIcon::Active, QIcon::On);
+        icon3.addFile(QString::fromUtf8(":/img/Iconos/iconfinder_person_3_1376034.png"), QSize(), QIcon::Selected, QIcon::On);
+        Gerente->setIcon(icon3);
+        Gerente->setIconSize(QSize(30, 30));
+
+        horizontalLayout->addWidget(Gerente);
+
+        stackedWidget->addWidget(page);
+        page_2 = new QWidget();
+        page_2->setObjectName(QString::fromUtf8("page_2"));
+        stackedWidget->addWidget(page_2);
         InicioSesion->setCentralWidget(centralwidget);
         menubar = new QMenuBar(InicioSesion);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1024, 21));
->>>>>>> Stashed changes
+        menubar->setGeometry(QRect(0, 0, 554, 21));
         InicioSesion->setMenuBar(menubar);
         statusbar = new QStatusBar(InicioSesion);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -164,18 +232,17 @@ public:
     void retranslateUi(QMainWindow *InicioSesion)
     {
         InicioSesion->setWindowTitle(QApplication::translate("InicioSesion", "InicioSesion", nullptr));
-<<<<<<< Updated upstream
-=======
-        label->setText(QApplication::translate("InicioSesion", "Inicio de sesion", nullptr));
-        label_2->setText(QApplication::translate("InicioSesion", "ID:", nullptr));
-        pushButton->setText(QApplication::translate("InicioSesion", "Ingresar", nullptr));
         label_4->setText(QString());
-        radioButton->setText(QApplication::translate("InicioSesion", "Mesero", nullptr));
-        radioButton_2->setText(QApplication::translate("InicioSesion", "Administracion", nullptr));
-        radioButton_3->setText(QApplication::translate("InicioSesion", "Cocinero", nullptr));
-        radioButton_4->setText(QApplication::translate("InicioSesion", "Gerente", nullptr));
+        label_3->setText(QApplication::translate("InicioSesion", " Contrase\303\261a: ", nullptr));
+        label_2->setText(QApplication::translate("InicioSesion", "ID:", nullptr));
         label_5->setText(QApplication::translate("InicioSesion", "\302\277Quien eres?", nullptr));
->>>>>>> Stashed changes
+        label->setText(QString());
+        pushButton->setText(QApplication::translate("InicioSesion", "Ingresar", nullptr));
+        label_6->setText(QString());
+        Mesero->setText(QApplication::translate("InicioSesion", "Mesero", nullptr));
+        Anfitrion->setText(QApplication::translate("InicioSesion", "Anfitrion", nullptr));
+        Cocinero->setText(QApplication::translate("InicioSesion", "Cocinero", nullptr));
+        Gerente->setText(QApplication::translate("InicioSesion", "Gerente", nullptr));
     } // retranslateUi
 
 };

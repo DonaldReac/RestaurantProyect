@@ -7,21 +7,30 @@
 #include <QSqlQuery>
 #include <QMessageBox>
 #include <qdebug.h>
-
 namespace Ui {
-class Gerente;
+class gerente;
 }
 
-class Gerente : public QDialog
+class gerente : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit Gerente(QWidget *parent = nullptr);
-    ~Gerente();
+    explicit gerente(QWidget *parent = nullptr);
+    ~gerente();
+
+private slots:
+    void on_pushButton_2_clicked();
+    void on_lineEdit_textChanged(const QString &arg1);
+
+    void on_pushButton_clicked();
+
+    void on_Buscar_clicked();
+
+    void on_Editar_clicked();
 
 private:
-    Ui::Gerente *ui;
+    Ui::gerente *ui;
     QSqlDatabase  conexion;
 };
 
