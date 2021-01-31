@@ -232,7 +232,7 @@ border: 1px solid #0B253A;;
         <pixmap resource="Img.qrc">:/img/Iconos/logosinfondo1.png</pixmap>
        </property>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -244,6 +244,9 @@ border: 1px solid #0B253A;;
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
          <widget class="QRadioButton" name="Mesero">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="text">
            <string>Mesero</string>
           </property>
