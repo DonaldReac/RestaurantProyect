@@ -8,6 +8,7 @@
 #include <QMessageBox>
 #include <qdebug.h>
 #include "gerente.h"
+#include "anfitrion.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class InicioSesion; }

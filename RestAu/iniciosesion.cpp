@@ -1,6 +1,7 @@
 #include "iniciosesion.h"
 #include "ui_iniciosesion.h"
 #include "gerente.h"
+#include "anfitrion.h"
 
 InicioSesion::InicioSesion(QWidget *parent)
     : QMainWindow(parent)
@@ -29,6 +30,7 @@ InicioSesion::~InicioSesion()
 
 void InicioSesion::on_pushButton_clicked()
 {
+    Anfitrion *interAnfi = new Anfitrion;
     conexion.open();
     QString ID;
     QString Contra;
@@ -83,6 +85,7 @@ void InicioSesion::on_pushButton_clicked()
               //Vamos a verificar la conexion
               if(Anfitrion.value(0) == ID && Anfitrion.value(1) == Contra){
                          qDebug() << "Pudiste entrar al sistema. Bienvenido." ;
+                         interAnfi->show();
                          close();
               }
         }

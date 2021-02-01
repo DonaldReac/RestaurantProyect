@@ -16,15 +16,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    anfitrion.cpp \
     gerente.cpp \
     main.cpp \
     iniciosesion.cpp
 
 HEADERS += \
+    anfitrion.h \
     gerente.h \
     iniciosesion.h
 
 FORMS += \
+    anfitrion.ui \
     gerente.ui \
     iniciosesion.ui
 

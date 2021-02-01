@@ -21,5 +21,10 @@
         <file>img/Iconos/ojo.png</file>
         <file>img/Iconos/regresar.png</file>
         <file>img/Iconos/tostadas-francesas-canela.png</file>
+        <file>img/Iconos/reserva-de-mesa.png</file>
+        <file>img/Iconos/cupcakes.png</file>
+        <file>img/Iconos/platillos-png.png</file>
+        <file>img/Iconos/mesa.png</file>
+        <file>img/Iconos/semaforos.png</file>
     </qresource>
 </RCC>
