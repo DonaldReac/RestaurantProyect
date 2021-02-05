@@ -3,10 +3,12 @@
 #include "iniciosesion.h"
 
 #define STR_EQUAL 0
-Anfitrion::Anfitrion(QWidget *parent) :
+Anfitrion::Anfitrion(int id,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Anfitrion)
 {
+    this->id=id;
+    this->id.toUInt();
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
     /*Mesa.prepare("Select estado from mesa where idMesa=1;");
@@ -49,6 +51,38 @@ void Anfitrion::on_Mesa_1_clicked()
             ui->Mesa_1->setStyleSheet("QPushButton { background-color: #FF0000; }");
         }
     }
+
+    QSqlQuery mesa2;
+    mesa2.prepare("Select u.idUsuario,m.estado,u.nombre,u.apellidoMaterno,u.apellidoPaterno from mesa as m inner join usuario as u on m.mesero_idMesero=u.idUsuario where idMesa=1;");
+    mesa2.exec();
+    if(mesa2.next() && mesa2.value(1).toString() == "No Disponible")
+    {
+        ui->lineEdit->setText(mesa2.value(0).toString());
+        ui->lineEdit_2->setText(mesa2.value(2).toString());
+        ui->lineEdit_3->setText(mesa2.value(3).toString());
+    }
+    else
+    {
+        ui->lineEdit->setText("");
+        ui->lineEdit_2->setText("");
+        ui->lineEdit_3->setText("");
+        qDebug() << "asignar un mesero";
+        QSqlQuery asignarMesero;
+        asignarMesero.prepare("select u.idusuario,u.nombre,m.estado from usuario as u inner join mesero as m on u.idUsuario=m.idMesero where m.estado='Disponible' limit 1;");
+        asignarMesero.exec();
+        asignarMesero.next();
+        QSqlQuery CambiarValoresMesa;
+        CambiarValoresMesa.prepare("update mesa set estado = 'No Disponible', mesero_idMesero='"+asignarMesero.value(0).toString()+"'where idMesa=1;");
+        CambiarValoresMesa.exec();
+        CambiarValoresMesa.next();
+        QSqlQuery CambiarValoresMesero;
+        CambiarValoresMesero.prepare("update mesero set estado = 'No Disponible' where idMesero= '"+asignarMesero.value(0).toString()+"'");
+        CambiarValoresMesero.exec();
+        CambiarValoresMesero.next();
+    }
+
+
+
 }
 
 void Anfitrion::on_Mesa_2_clicked()
@@ -71,6 +105,34 @@ void Anfitrion::on_Mesa_2_clicked()
             ui->Mesa_2->setStyleSheet("QPushButton { background-color: #FF0000; }");
         }
     }
+    QSqlQuery mesa2;
+    mesa2.prepare("Select u.idUsuario,m.estado,u.nombre,u.apellidoMaterno,u.apellidoPaterno from mesa as m inner join usuario as u on m.mesero_idMesero=u.idUsuario where idMesa=2;");
+    mesa2.exec();
+    if(mesa2.next() && mesa2.value(1).toString() == "No Disponible")
+    {
+        ui->lineEdit->setText(mesa2.value(0).toString());
+        ui->lineEdit_2->setText(mesa2.value(2).toString());
+        ui->lineEdit_3->setText(mesa2.value(3).toString());
+    }
+    else
+    {
+        ui->lineEdit->setText("");
+        ui->lineEdit_2->setText("");
+        ui->lineEdit_3->setText("");
+        qDebug() << "asignar un mesero";
+        QSqlQuery asignarMesero;
+        asignarMesero.prepare("select u.idusuario,u.nombre,m.estado from usuario as u inner join mesero as m on u.idUsuario=m.idMesero where m.estado='Disponible' limit 1;");
+        asignarMesero.exec();
+        asignarMesero.next();
+        QSqlQuery CambiarValoresMesa;
+        CambiarValoresMesa.prepare("update mesa set estado = 'No Disponible', mesero_idMesero='"+asignarMesero.value(0).toString()+"'where idMesa=2;");
+        CambiarValoresMesa.exec();
+        CambiarValoresMesa.next();
+        QSqlQuery CambiarValoresMesero;
+        CambiarValoresMesero.prepare("update mesero set estado = 'No Disponible' where idMesero= '"+asignarMesero.value(0).toString()+"'");
+        CambiarValoresMesero.exec();
+        CambiarValoresMesero.next();
+    }
 }
 
 void Anfitrion::on_Mesa_3_clicked()
@@ -92,6 +154,35 @@ void Anfitrion::on_Mesa_3_clicked()
             ui->Mesa_3->setStyleSheet("QPushButton { background-color: #FF0000; }");
         }
     }
+
+    QSqlQuery mesa2;
+    mesa2.prepare("Select u.idUsuario,m.estado,u.nombre,u.apellidoMaterno,u.apellidoPaterno from mesa as m inner join usuario as u on m.mesero_idMesero=u.idUsuario where idMesa=3;");
+    mesa2.exec();
+    if(mesa2.next() && mesa2.value(1).toString() == "No Disponible")
+    {
+        ui->lineEdit->setText(mesa2.value(0).toString());
+        ui->lineEdit_2->setText(mesa2.value(2).toString());
+        ui->lineEdit_3->setText(mesa2.value(3).toString());
+    }
+    else
+    {
+        ui->lineEdit->setText("");
+        ui->lineEdit_2->setText("");
+        ui->lineEdit_3->setText("");
+        qDebug() << "asignar un mesero";
+        QSqlQuery asignarMesero;
+        asignarMesero.prepare("select u.idusuario,u.nombre,m.estado from usuario as u inner join mesero as m on u.idUsuario=m.idMesero where m.estado='Disponible' limit 1;");
+        asignarMesero.exec();
+        asignarMesero.next();
+        QSqlQuery CambiarValoresMesa;
+        CambiarValoresMesa.prepare("update mesa set estado = 'No Disponible', mesero_idMesero='"+asignarMesero.value(0).toString()+"'where idMesa=3;");
+        CambiarValoresMesa.exec();
+        CambiarValoresMesa.next();
+        QSqlQuery CambiarValoresMesero;
+        CambiarValoresMesero.prepare("update mesero set estado = 'No Disponible' where idMesero= '"+asignarMesero.value(0).toString()+"'");
+        CambiarValoresMesero.exec();
+        CambiarValoresMesero.next();
+    }
 }
 
 void Anfitrion::on_Mesa_4_clicked()
@@ -112,5 +203,34 @@ void Anfitrion::on_Mesa_4_clicked()
         if(QString::compare(MesaND, disponibilidad) == STR_EQUAL){
             ui->Mesa_4->setStyleSheet("QPushButton { background-color: #FF0000; }");
         }
+    }
+    QSqlQuery mesa2;
+    mesa2.prepare("Select u.idUsuario,m.estado,u.nombre,u.apellidoMaterno,u.apellidoPaterno from mesa as m inner join usuario as u on m.mesero_idMesero=u.idUsuario where idMesa=4;");
+    mesa2.exec();
+    if(mesa2.next() && mesa2.value(1).toString() == "No Disponible")
+    {
+        ui->lineEdit->setText(mesa2.value(0).toString());
+        ui->lineEdit_2->setText(mesa2.value(2).toString());
+        ui->lineEdit_3->setText(mesa2.value(3).toString());
+    }
+    else
+    {
+        ui->lineEdit->setText("");
+        ui->lineEdit_2->setText("");
+        ui->lineEdit_3->setText("");
+        qDebug() << "asignar un mesero";
+        QSqlQuery asignarMesero;
+        asignarMesero.prepare("select u.idusuario,u.nombre,m.estado from usuario as u inner join mesero as m on u.idUsuario=m.idMesero where m.estado='Disponible' limit 1;");
+        asignarMesero.exec();
+        asignarMesero.next();
+        QSqlQuery CambiarValoresMesa;
+        CambiarValoresMesa.prepare("update mesa set estado = 'No Disponible', mesero_idMesero='"+asignarMesero.value(0).toString()+"'where idMesa=4;");
+        CambiarValoresMesa.exec();
+        CambiarValoresMesa.next();
+        QSqlQuery CambiarValoresMesero;
+        CambiarValoresMesero.prepare("update mesero set estado = 'No Disponible' where idMesero= '"+asignarMesero.value(0).toString()+"'");
+        CambiarValoresMesero.exec();
+        CambiarValoresMesero.next();
+
     }
 }

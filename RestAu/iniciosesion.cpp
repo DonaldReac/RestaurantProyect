@@ -30,7 +30,7 @@ InicioSesion::~InicioSesion()
 
 void InicioSesion::on_pushButton_clicked()
 {
-    Anfitrion *interAnfi = new Anfitrion;
+
     conexion.open();
     QString ID;
     QString Contra;
@@ -74,17 +74,18 @@ void InicioSesion::on_pushButton_clicked()
 
     //login anfitrion
     if(ui->Anfitrion->isChecked()){
-        QSqlQuery Anfitrion;
-        Anfitrion.prepare("Select idusuario, password from usuario inner join anfitrion on idusuario = idanfitrion where idanfitrion='"+ID+"' and password ='"+Contra+"' ;");
-        Anfitrion.exec();
+        QSqlQuery anfitrion;
+        anfitrion.prepare("Select idusuario, password from usuario inner join anfitrion on idusuario = idanfitrion where idanfitrion='"+ID+"' and password ='"+Contra+"' ;");
+        anfitrion.exec();
         //vamos a buscar los datos
-        if(Anfitrion.next()){
+        if(anfitrion.next()){
     //          qDebug() << "ID : " << Anfitrion.value(0);
         //      qDebug() << "Password: " << Anfitrion.value(1);
 
               //Vamos a verificar la conexion
-              if(Anfitrion.value(0) == ID && Anfitrion.value(1) == Contra){
+              if(anfitrion.value(0) == ID && anfitrion.value(1) == Contra){
                          qDebug() << "Pudiste entrar al sistema. Bienvenido." ;
+                         Anfitrion *interAnfi = new Anfitrion(ID.toInt());
                          interAnfi->show();
                          close();
               }
