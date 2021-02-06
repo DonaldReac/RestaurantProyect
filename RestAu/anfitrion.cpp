@@ -34,16 +34,6 @@ void Anfitrion::on_salida_clicked()
 
 void Anfitrion::on_Mesa_1_clicked()
 {
-    QMessageBox Message1;
-    Message1.setText("¿Desea asignar el mesero seleccionado a la mesa seleccionada?");
-    QAbstractButton * Aceptar = Message1.addButton("Aceptar",QMessageBox::AcceptRole);
-    QAbstractButton * Cancelar = Message1.addButton("Cancelar",QMessageBox::NoRole);
-    Message1.setIcon(QMessageBox::Information);
-
-    Message1.exec();
-
-    if(Message1.clickedButton() == Aceptar){
-
     conexion.open();
     QString MesaD="Disponible";
     QString MesaND="No Disponible";
@@ -73,6 +63,16 @@ void Anfitrion::on_Mesa_1_clicked()
     }
     else
     {
+        QMessageBox Message1;
+       Message1.setText("¿Desea asignar el mesero seleccionado a la mesa seleccionada?");
+       QAbstractButton * Aceptar = Message1.addButton("Aceptar",QMessageBox::AcceptRole);
+        QAbstractButton * Cancelar = Message1.addButton("Cancelar",QMessageBox::NoRole);
+       Message1.setIcon(QMessageBox::Information);
+
+       Message1.exec();
+
+        if(Message1.clickedButton() == Aceptar){
+
         ui->lineEdit->setText("");
         ui->lineEdit_2->setText("");
         ui->lineEdit_3->setText("");
@@ -89,23 +89,15 @@ void Anfitrion::on_Mesa_1_clicked()
         CambiarValoresMesero.prepare("update mesero set estado = 'No Disponible' where idMesero= '"+asignarMesero.value(0).toString()+"'");
         CambiarValoresMesero.exec();
         CambiarValoresMesero.next();
-    }
 
+
+    }
 }
 
 }
 
 void Anfitrion::on_Mesa_2_clicked()
 {
-    QMessageBox Message2;
-    Message2.setText("¿Desea asignar el mesero seleccionado a la mesa seleccionada?");
-    QAbstractButton * Acep = Message2.addButton("Aceptar",QMessageBox::AcceptRole);
-    QAbstractButton * Can = Message2.addButton("Cancelar",QMessageBox::NoRole);
-    Message2.setIcon(QMessageBox::Information);
-
-    Message2.exec();
-
-    if(Message2.clickedButton() == Acep){
 
     conexion.open();
     QString MesaD="Disponible";
@@ -136,6 +128,16 @@ void Anfitrion::on_Mesa_2_clicked()
     }
     else
     {
+        QMessageBox Message2;
+        Message2.setText("¿Desea asignar el mesero seleccionado a la mesa seleccionada?");
+        QAbstractButton * Acep = Message2.addButton("Aceptar",QMessageBox::AcceptRole);
+        QAbstractButton * Can = Message2.addButton("Cancelar",QMessageBox::NoRole);
+        Message2.setIcon(QMessageBox::Information);
+
+        Message2.exec();
+
+        if(Message2.clickedButton() == Acep){
+
         ui->lineEdit->setText("");
         ui->lineEdit_2->setText("");
         ui->lineEdit_3->setText("");
@@ -152,21 +154,12 @@ void Anfitrion::on_Mesa_2_clicked()
         CambiarValoresMesero.prepare("update mesero set estado = 'No Disponible' where idMesero= '"+asignarMesero.value(0).toString()+"'");
         CambiarValoresMesero.exec();
         CambiarValoresMesero.next();
-    }
+        }
     }
 }
 
 void Anfitrion::on_Mesa_3_clicked()
 {
-    QMessageBox Message3;
-    Message3.setText("¿Desea asignar el mesero seleccionado a la mesa seleccionada?");
-    QAbstractButton * Acep = Message3.addButton("Aceptar",QMessageBox::AcceptRole);
-    QAbstractButton * Nope = Message3.addButton("Cancelar",QMessageBox::NoRole);
-    Message3.setIcon(QMessageBox::Information);
-
-    Message3.exec();
-
-    if(Message3.clickedButton() == Acep){
 
     conexion.open();
     QString MesaD="Disponible";
@@ -197,6 +190,16 @@ void Anfitrion::on_Mesa_3_clicked()
     }
     else
     {
+        QMessageBox Message3;
+        Message3.setText("¿Desea asignar el mesero seleccionado a la mesa seleccionada?");
+        QAbstractButton * Acep = Message3.addButton("Aceptar",QMessageBox::AcceptRole);
+        QAbstractButton * Nope = Message3.addButton("Cancelar",QMessageBox::NoRole);
+        Message3.setIcon(QMessageBox::Information);
+
+        Message3.exec();
+
+        if(Message3.clickedButton() == Acep){
+
         ui->lineEdit->setText("");
         ui->lineEdit_2->setText("");
         ui->lineEdit_3->setText("");
@@ -219,16 +222,6 @@ void Anfitrion::on_Mesa_3_clicked()
 
 void Anfitrion::on_Mesa_4_clicked()
 {
-    QMessageBox Message4;
-    Message4.setText("¿Desea asignar el mesero seleccionado a la mesa seleccionada?");
-    QAbstractButton * Accept = Message4.addButton("Aceptar",QMessageBox::AcceptRole);
-    QAbstractButton * Denied = Message4.addButton("Cancelar",QMessageBox::NoRole);
-    Message4.setIcon(QMessageBox::Information);
-
-    Message4.exec();
-
-    if(Message4.clickedButton() == Accept){
-
     conexion.open();
     QString MesaD="Disponible";
     QString MesaND="No Disponible";
@@ -257,6 +250,17 @@ void Anfitrion::on_Mesa_4_clicked()
     }
     else
     {
+        QMessageBox Message4;
+        Message4.setText("¿Desea asignar el mesero seleccionado a la mesa seleccionada?");
+        QAbstractButton * Accept = Message4.addButton("Aceptar",QMessageBox::AcceptRole);
+        QAbstractButton * Denied = Message4.addButton("Cancelar",QMessageBox::NoRole);
+        Message4.setIcon(QMessageBox::Information);
+
+        Message4.exec();
+
+        if(Message4.clickedButton() == Accept){
+
+
         ui->lineEdit->setText("");
         ui->lineEdit_2->setText("");
         ui->lineEdit_3->setText("");
