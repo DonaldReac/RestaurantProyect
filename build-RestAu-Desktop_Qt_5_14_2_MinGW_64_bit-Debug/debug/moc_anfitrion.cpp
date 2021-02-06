@@ -91,7 +91,6 @@ void Anfitrion::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         auto *_t = static_cast<Anfitrion *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_Dipinibilidad_Mesas_clicked(); break;
         case 1: _t->on_Disponibilidad_Mesas_clicked(); break;
         case 2: _t->on_salida_clicked(); break;
         case 3: _t->on_Mesa_1_clicked(); break;

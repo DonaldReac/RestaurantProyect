@@ -669,11 +669,34 @@ debug/anfitrion.o: ../RestAu/anfitrion.cpp ../RestAu/anfitrion.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h \
 		ui_anfitrion.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QVariant \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/QIcon \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qicon.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QApplication \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qapplication.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qeventloop.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qguiapplication.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qinputmethod.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLabel \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlabel.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qframe.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLineEdit \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlineedit.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextcursor.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextformat.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qpen.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QPushButton \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QStackedWidget \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qstackedwidget.h \
 		../RestAu/iniciosesion.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMainWindow \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmainwindow.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qtabwidget.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qicon.h \
 		../RestAu/gerente.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\anfitrion.o ..\RestAu\anfitrion.cpp
 
@@ -793,13 +816,59 @@ debug/gerente.o: ../RestAu/gerente.cpp ../RestAu/gerente.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h \
 		ui_gerente.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QVariant \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/QIcon \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qicon.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QApplication \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qapplication.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qeventloop.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qguiapplication.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qinputmethod.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QCheckBox \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qcheckbox.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QComboBox \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qcombobox.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qstyleoption.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qvalidator.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qregularexpression.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qslider.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qstyle.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qtabbar.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qtabwidget.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qrubberband.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qframe.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QHeaderView \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qheaderview.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLabel \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlabel.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLineEdit \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlineedit.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextcursor.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextformat.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qpen.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QPushButton \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QStackedWidget \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qstackedwidget.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QTableWidget \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qtablewidget.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qtableview.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QWidget \
 		../RestAu/iniciosesion.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMainWindow \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmainwindow.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qtabwidget.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qicon.h \
 		../RestAu/anfitrion.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QWidget \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QString
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\gerente.o ..\RestAu\gerente.cpp
 
@@ -1063,7 +1132,44 @@ debug/iniciosesion.o: ../RestAu/iniciosesion.cpp ../RestAu/iniciosesion.h \
 		../RestAu/anfitrion.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QWidget \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QString \
-		ui_iniciosesion.h
+		ui_iniciosesion.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QVariant \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/QIcon \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QApplication \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qapplication.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qeventloop.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qguiapplication.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qinputmethod.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QHBoxLayout \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qboxlayout.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlayout.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgridlayout.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLabel \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlabel.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qframe.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLineEdit \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlineedit.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextcursor.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextformat.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qpen.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMenuBar \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmenubar.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmenu.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qaction.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qactiongroup.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QPushButton \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QRadioButton \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qradiobutton.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QStackedWidget \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qstackedwidget.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QStatusBar \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qstatusbar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\iniciosesion.o ..\RestAu\iniciosesion.cpp
 
 debug/qrc_Img.o: debug/qrc_Img.cpp 

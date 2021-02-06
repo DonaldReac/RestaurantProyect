@@ -13,6 +13,7 @@
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QWidget>
@@ -42,6 +43,13 @@ public:
     QPushButton *Mesa_7;
     QLabel *label_4;
     QLabel *label_5;
+    QWidget *widget;
+    QLineEdit *lineEdit;
+    QLabel *label_14;
+    QLineEdit *lineEdit_2;
+    QLabel *label_15;
+    QLabel *label_16;
+    QLineEdit *lineEdit_3;
     QWidget *Mesas_Disponibles;
 
     void setupUi(QWidget *Anfitrion)
@@ -62,12 +70,12 @@ public:
         Menu->setObjectName(QString::fromUtf8("Menu"));
         label = new QLabel(Menu);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(10, 20, 151, 81));
+        label->setGeometry(QRect(0, 20, 151, 81));
         label->setPixmap(QPixmap(QString::fromUtf8(":/img/Iconos/logosinfondo1.png")));
         label->setScaledContents(true);
         salida = new QPushButton(Menu);
         salida->setObjectName(QString::fromUtf8("salida"));
-        salida->setGeometry(QRect(0, 410, 151, 51));
+        salida->setGeometry(QRect(0, 410, 151, 61));
         salida->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "  border:0px solid gray;\n"
@@ -110,7 +118,7 @@ public:
         stackedWidget->addWidget(page_2);
         stackedWidget_2 = new QStackedWidget(Anfitrion);
         stackedWidget_2->setObjectName(QString::fromUtf8("stackedWidget_2"));
-        stackedWidget_2->setGeometry(QRect(161, 0, 591, 481));
+        stackedWidget_2->setGeometry(QRect(151, 0, 601, 481));
         stackedWidget_2->setStyleSheet(QString::fromUtf8("QWidget{\n"
 "background-color: #DFE3E5;\n"
 "border-right: 1px solid;\n"
@@ -120,12 +128,12 @@ public:
         Inicio_Anfitrion->setObjectName(QString::fromUtf8("Inicio_Anfitrion"));
         label_2 = new QLabel(Inicio_Anfitrion);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(260, 230, 411, 261));
+        label_2->setGeometry(QRect(420, 330, 251, 161));
         label_2->setPixmap(QPixmap(QString::fromUtf8(":/img/Iconos/platillos-png.png")));
         label_2->setScaledContents(true);
         label_3 = new QLabel(Inicio_Anfitrion);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(2, 0, 571, 61));
+        label_3->setGeometry(QRect(2, 0, 581, 61));
         QFont font1;
         font1.setFamily(QString::fromUtf8("SuckerPunch"));
         font1.setPointSize(40);
@@ -187,7 +195,7 @@ public:
         Mesa_7->setIconSize(QSize(50, 50));
         label_4 = new QLabel(Inicio_Anfitrion);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(400, 120, 171, 51));
+        label_4->setGeometry(QRect(350, 120, 271, 51));
         QFont font3;
         font3.setFamily(QString::fromUtf8("augie"));
         font3.setPointSize(14);
@@ -195,9 +203,63 @@ public:
         label_4->setStyleSheet(QString::fromUtf8("color: #FF0000;"));
         label_5 = new QLabel(Inicio_Anfitrion);
         label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setGeometry(QRect(400, 170, 171, 51));
+        label_5->setGeometry(QRect(360, 160, 241, 51));
         label_5->setFont(font3);
         label_5->setStyleSheet(QString::fromUtf8("color: #008000;"));
+        widget = new QWidget(Inicio_Anfitrion);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(290, 220, 261, 171));
+        widget->setStyleSheet(QString::fromUtf8("QWidget{\n"
+"background-color: rgba(255, 255, 255, 10);\n"
+"border: 1px solid; \n"
+"border-radius: 10px;\n"
+"background-color: #faf4ee;\n"
+"}"));
+        lineEdit = new QLineEdit(widget);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        lineEdit->setGeometry(QRect(80, 10, 171, 41));
+        lineEdit->setAlignment(Qt::AlignCenter);
+        label_14 = new QLabel(widget);
+        label_14->setObjectName(QString::fromUtf8("label_14"));
+        label_14->setGeometry(QRect(30, 20, 31, 21));
+        label_14->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"font:13pt  \"CaviarDreams_BoldItalic\";\n"
+"background-color: rgba(255, 255, 255,50);\n"
+"border: none; \n"
+"border-radius: 10px;\n"
+"color:black;\n"
+"}\n"
+""));
+        lineEdit_2 = new QLineEdit(widget);
+        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
+        lineEdit_2->setGeometry(QRect(80, 60, 171, 41));
+        lineEdit_2->setAlignment(Qt::AlignCenter);
+        label_15 = new QLabel(widget);
+        label_15->setObjectName(QString::fromUtf8("label_15"));
+        label_15->setGeometry(QRect(10, 70, 61, 21));
+        label_15->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"font:13pt  \"CaviarDreams_BoldItalic\";\n"
+"background-color: rgba(255, 255, 255,50);\n"
+"border: none; \n"
+"border-radius: 10px;\n"
+"color:black;\n"
+"}\n"
+""));
+        label_16 = new QLabel(widget);
+        label_16->setObjectName(QString::fromUtf8("label_16"));
+        label_16->setGeometry(QRect(10, 120, 61, 21));
+        label_16->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"font:13pt  \"CaviarDreams_BoldItalic\";\n"
+"background-color: rgba(255, 255, 255,50);\n"
+"border: none; \n"
+"border-radius: 10px;\n"
+"color:black;\n"
+"}\n"
+""));
+        lineEdit_3 = new QLineEdit(widget);
+        lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
+        lineEdit_3->setGeometry(QRect(80, 110, 171, 41));
+        lineEdit_3->setAlignment(Qt::AlignCenter);
         stackedWidget_2->addWidget(Inicio_Anfitrion);
         Mesas_Disponibles = new QWidget();
         Mesas_Disponibles->setObjectName(QString::fromUtf8("Mesas_Disponibles"));
@@ -226,6 +288,11 @@ public:
         Mesa_7->setText(QCoreApplication::translate("Anfitrion", "7", nullptr));
         label_4->setText(QCoreApplication::translate("Anfitrion", "NO DISPONIBLE", nullptr));
         label_5->setText(QCoreApplication::translate("Anfitrion", "DISPONIBLE", nullptr));
+        label_14->setText(QCoreApplication::translate("Anfitrion", "ID:", nullptr));
+        lineEdit_2->setText(QString());
+        label_15->setText(QCoreApplication::translate("Anfitrion", "Nombre:", nullptr));
+        label_16->setText(QCoreApplication::translate("Anfitrion", "Apellido:", nullptr));
+        lineEdit_3->setText(QString());
     } // retranslateUi
 
 };
