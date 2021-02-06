@@ -206,7 +206,7 @@ public:
         label_4->setWordWrap(false);
         Editar = new QPushButton(BuscarUsuario);
         Editar->setObjectName(QString::fromUtf8("Editar"));
-        Editar->setGeometry(QRect(480, 60, 81, 51));
+        Editar->setGeometry(QRect(490, 70, 61, 41));
         Editar->setFocusPolicy(Qt::NoFocus);
         Editar->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "background-color: rgba(255, 255, 255, 10);}\n"

@@ -19,7 +19,7 @@ class Anfitrion : public QWidget
     Q_OBJECT
 
 public:
-    explicit Anfitrion(QWidget *parent = nullptr);
+    explicit Anfitrion(int id,QWidget *parent = nullptr);
     ~Anfitrion();
 
 private slots:
@@ -40,6 +40,7 @@ private slots:
 private:
     Ui::Anfitrion *ui;
     QSqlDatabase  conexion;
+    QString id;
 };
 
 #endif // ANFITRION_H
