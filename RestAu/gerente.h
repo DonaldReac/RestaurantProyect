@@ -38,6 +38,8 @@ private slots:
 
     void on_vercontra_stateChanged(int arg1);
 
+    void on_lineEdit_cursorPositionChanged(int arg1, int arg2);
+
 private:
     Ui::gerente *ui;
     QSqlDatabase  conexion;

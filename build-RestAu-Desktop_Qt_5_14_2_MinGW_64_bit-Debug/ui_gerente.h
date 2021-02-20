@@ -583,6 +583,7 @@ public:
         retranslateUi(gerente);
 
         stackedWidget->setCurrentIndex(0);
+        stackedWidget_2->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(gerente);

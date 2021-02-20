@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_gerente_t {
-    QByteArrayData data[11];
-    char stringdata0[193];
+    QByteArrayData data[13];
+    char stringdata0[232];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -42,7 +42,9 @@ QT_MOC_LITERAL(6, 78, 17), // "on_Editar_clicked"
 QT_MOC_LITERAL(7, 96, 18), // "on_Agregar_clicked"
 QT_MOC_LITERAL(8, 115, 25), // "on_agregarusuario_clicked"
 QT_MOC_LITERAL(9, 141, 25), // "on_Guardarcambios_clicked"
-QT_MOC_LITERAL(10, 167, 25) // "on_vercontra_stateChanged"
+QT_MOC_LITERAL(10, 167, 25), // "on_vercontra_stateChanged"
+QT_MOC_LITERAL(11, 193, 33), // "on_lineEdit_cursorPositionCha..."
+QT_MOC_LITERAL(12, 227, 4) // "arg2"
 
     },
     "gerente\0on_lineEdit_textChanged\0\0arg1\0"
@@ -50,7 +52,9 @@ QT_MOC_LITERAL(10, 167, 25) // "on_vercontra_stateChanged"
     "on_Editar_clicked\0on_Agregar_clicked\0"
     "on_agregarusuario_clicked\0"
     "on_Guardarcambios_clicked\0"
-    "on_vercontra_stateChanged"
+    "on_vercontra_stateChanged\0"
+    "on_lineEdit_cursorPositionChanged\0"
+    "arg2"
 };
 #undef QT_MOC_LITERAL
 
@@ -60,7 +64,7 @@ static const uint qt_meta_data_gerente[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -68,14 +72,15 @@ static const uint qt_meta_data_gerente[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   54,    2, 0x08 /* Private */,
-       4,    0,   57,    2, 0x08 /* Private */,
-       5,    0,   58,    2, 0x08 /* Private */,
-       6,    0,   59,    2, 0x08 /* Private */,
-       7,    0,   60,    2, 0x08 /* Private */,
-       8,    0,   61,    2, 0x08 /* Private */,
-       9,    0,   62,    2, 0x08 /* Private */,
-      10,    1,   63,    2, 0x08 /* Private */,
+       1,    1,   59,    2, 0x08 /* Private */,
+       4,    0,   62,    2, 0x08 /* Private */,
+       5,    0,   63,    2, 0x08 /* Private */,
+       6,    0,   64,    2, 0x08 /* Private */,
+       7,    0,   65,    2, 0x08 /* Private */,
+       8,    0,   66,    2, 0x08 /* Private */,
+       9,    0,   67,    2, 0x08 /* Private */,
+      10,    1,   68,    2, 0x08 /* Private */,
+      11,    2,   71,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QString,    3,
@@ -86,6 +91,7 @@ static const uint qt_meta_data_gerente[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,    3,   12,
 
        0        // eod
 };
@@ -138,13 +144,13 @@ int gerente::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 9;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 9)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 8;
+        _id -= 9;
     }
     return _id;
 }

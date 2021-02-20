@@ -2,6 +2,7 @@
 #include "ui_iniciosesion.h"
 #include "gerente.h"
 #include "anfitrion.h"
+#include "mesero.h"
 
 InicioSesion::InicioSesion(QWidget *parent)
     : QMainWindow(parent)
@@ -61,12 +62,13 @@ void InicioSesion::on_pushButton_clicked()
         Mesero.exec();
         //vamos a buscar los datos
         if(Mesero.next()){
-              qDebug() << "ID : " << Mesero.value(0);
-              qDebug() << "Password: " << Mesero.value(1);
-
+      //        qDebug() << "ID : " << mesero.value(0);
+    //          qDebug() << "Password: " << mesero.value(1);
               //Vamos a verificar la conexion
               if(Mesero.value(0) == ID && Mesero.value(1) == Contra){
                          qDebug() << "Pudiste entrar al sistema. Bienvenido." ;
+                         mesero *InterMes = new mesero(ID.toInt());
+                         InterMes->show();
                          close();
               }
         }
