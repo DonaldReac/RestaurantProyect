@@ -1,6 +1,11 @@
 #include "gerente.h"
 #include "ui_gerente.h"
 #include "iniciosesion.h"
+#include "QPrintDialog"
+#include <QPrinter>
+#include <QPdfWriter>
+#include <QTextDocument>
+#include <QDesktopServices>
 
 gerente::gerente(QWidget *parent) :
     QDialog(parent),
@@ -9,9 +14,15 @@ gerente::gerente(QWidget *parent) :
     ui->setupUi(this);
 
     QStringList titulos;
+    QStringList inventario;
         ui->tableusuario->setColumnCount(6);
+        ui->inventario_Tabla->setColumnCount(5);
         titulos<< "Id" << "Nombre" <<"Apellido Paterno" << "Apellido Materno" << "Puesto"<<"Edad";
+        inventario<<"Estado"<<"Restantes"<<"Nombre"<<"Tipo"<<"Id";
         ui->tableusuario->setHorizontalHeaderLabels(titulos);
+        ui->inventario_Tabla->setHorizontalHeaderLabels(inventario);
+        ui->tableusuario->setColumnCount(6);
+
         QSqlQuery MatAtra;
         MatAtra.prepare("select * from usuario");
         MatAtra.exec();
@@ -268,3 +279,148 @@ void gerente::on_vercontra_stateChanged(int arg1)
     ui->contrasenia1->setEchoMode(ui->vercontra->checkState() == Qt::Checked ? QLineEdit::Normal : QLineEdit::Password);
     ui->contrasenia2->setEchoMode(ui->vercontra->checkState() == Qt::Checked ? QLineEdit::Normal : QLineEdit::Password);
 }
+
+void gerente::on_Inventario_clicked()
+{
+    ui->stackedWidget_2->setCurrentIndex(3);
+}
+
+void gerente::on_pushButton_2_clicked()
+{
+    ui->inventario_Tabla->setRowCount(0);
+        QSqlQuery desayunos;
+        desayunos.prepare("SELECT idComida,tipo,nombre,raciones from comida where tipo='Desayunos'");
+        desayunos.exec();
+        while(desayunos.next())
+        {
+            QString idcomida = desayunos.value(0).toString();
+            QString tipo = desayunos.value(1).toString();
+            QString nombre = desayunos.value(2).toString();
+            QString raciones = desayunos.value(3).toString();
+
+            ui->inventario_Tabla->insertRow(ui->inventario_Tabla->rowCount());
+
+            if(raciones.toInt()<=10)
+            {
+             ui->inventario_Tabla->setItem(ui->inventario_Tabla->rowCount()-1,0,new QTableWidgetItem("Pocos Recursos"));
+             ui->inventario_Tabla->item(ui->inventario_Tabla->rowCount()-1,0)->setBackgroundColor("red");
+            ui->inventario_Tabla->item(ui->inventario_Tabla->rowCount()-1,0)->setTextAlignment(Qt::AlignCenter);
+            }else
+            {
+             ui->inventario_Tabla->setItem(ui->inventario_Tabla->rowCount()-1,0,new QTableWidgetItem("Suficientes Recursos"));
+            ui->inventario_Tabla->item(ui->inventario_Tabla->rowCount()-1,0)->setBackgroundColor("green");
+            ui->inventario_Tabla->item(ui->inventario_Tabla->rowCount()-1,0)->setTextAlignment(Qt::AlignCenter);
+            }
+
+            ui->inventario_Tabla->setItem(ui->inventario_Tabla->rowCount()-1,1,new QTableWidgetItem(raciones));
+            ui->inventario_Tabla->setItem(ui->inventario_Tabla->rowCount()-1,2,new QTableWidgetItem(nombre));
+            ui->inventario_Tabla->setItem(ui->inventario_Tabla->rowCount()-1,3,new QTableWidgetItem(tipo));
+            ui->inventario_Tabla->setItem(ui->inventario_Tabla->rowCount()-1,4,new QTableWidgetItem(idcomida));
+        }
+
+}
+
+void gerente::on_pushButton_3_clicked()
+{
+    ui->inventario_Tabla->setRowCount(0);
+    QSqlQuery bebidas;
+    bebidas.prepare("SELECT idComida,tipo,nombre,raciones from comida where tipo='Bebidas'");
+    bebidas.exec();
+    while(bebidas.next())
+    {
+        QString idcomida = bebidas.value(0).toString();
+        QString tipo = bebidas.value(1).toString();
+        QString nombre = bebidas.value(2).toString();
+        QString raciones = bebidas.value(3).toString();
+
+        ui->inventario_Tabla->insertRow(ui->inventario_Tabla->rowCount());
+
+        if(raciones.toInt()<=10)
+        {
+         ui->inventario_Tabla->setItem(ui->inventario_Tabla->rowCount()-1,0,new QTableWidgetItem("Pocos Recursos"));
+         ui->inventario_Tabla->item(ui->inventario_Tabla->rowCount()-1,0)->setBackgroundColor("red");
+         ui->inventario_Tabla->item(ui->inventario_Tabla->rowCount()-1,0)->setTextAlignment(Qt::AlignCenter);
+        }else
+        {
+         ui->inventario_Tabla->setItem(ui->inventario_Tabla->rowCount()-1,0,new QTableWidgetItem("Suficientes Recursos"));
+        ui->inventario_Tabla->item(ui->inventario_Tabla->rowCount()-1,0)->setBackgroundColor("green");
+        ui->inventario_Tabla->item(ui->inventario_Tabla->rowCount()-1,0)->setTextAlignment(Qt::AlignCenter);
+        }
+
+        ui->inventario_Tabla->setItem(ui->inventario_Tabla->rowCount()-1,1,new QTableWidgetItem(raciones));
+        ui->inventario_Tabla->setItem(ui->inventario_Tabla->rowCount()-1,2,new QTableWidgetItem(nombre));
+        ui->inventario_Tabla->setItem(ui->inventario_Tabla->rowCount()-1,3,new QTableWidgetItem(tipo));
+        ui->inventario_Tabla->setItem(ui->inventario_Tabla->rowCount()-1,4,new QTableWidgetItem(idcomida));
+    }
+
+}
+
+void gerente::on_pushButton_4_clicked()
+{
+    ui->inventario_Tabla->setRowCount(0);
+    QSqlQuery postres;
+    postres.prepare("SELECT idComida,tipo,nombre,raciones from comida where tipo='Postres'");
+    postres.exec();
+    while(postres.next())
+    {
+        QString idcomida = postres.value(0).toString();
+        QString tipo = postres.value(1).toString();
+        QString nombre = postres.value(2).toString();
+        QString raciones = postres.value(3).toString();
+
+        ui->inventario_Tabla->insertRow(ui->inventario_Tabla->rowCount());
+
+        if(raciones.toInt()<=10)
+        {
+         ui->inventario_Tabla->setItem(ui->inventario_Tabla->rowCount()-1,0,new QTableWidgetItem("Pocos Recursos"));
+         ui->inventario_Tabla->item(ui->inventario_Tabla->rowCount()-1,0)->setBackgroundColor("red");
+        ui->inventario_Tabla->item(ui->inventario_Tabla->rowCount()-1,0)->setTextAlignment(Qt::AlignCenter);
+        }else{
+         ui->inventario_Tabla->setItem(ui->inventario_Tabla->rowCount()-1,0,new QTableWidgetItem("Suficientes Recursos"));
+        ui->inventario_Tabla->item(ui->inventario_Tabla->rowCount()-1,0)->setBackgroundColor("green");
+        ui->inventario_Tabla->item(ui->inventario_Tabla->rowCount()-1,0)->setTextAlignment(Qt::AlignCenter);
+        }
+
+        ui->inventario_Tabla->setItem(ui->inventario_Tabla->rowCount()-1,1,new QTableWidgetItem(raciones));
+        ui->inventario_Tabla->setItem(ui->inventario_Tabla->rowCount()-1,2,new QTableWidgetItem(nombre));
+        ui->inventario_Tabla->setItem(ui->inventario_Tabla->rowCount()-1,3,new QTableWidgetItem(tipo));
+        ui->inventario_Tabla->setItem(ui->inventario_Tabla->rowCount()-1,4,new QTableWidgetItem(idcomida));
+    }
+}
+
+void gerente::on_pushButton_5_clicked()
+{
+    QString html;
+    html +="<img class='imageCenter' text-align: 'center' src='://img/Iconos/logo.jpeg' alt='Ed' width='200' height='130'/><strong>"
+           "<h1 style='text-align: center';>Inventario</h1>"
+           "<hr />"
+           "<h3 style='text-align: center';>Presentamos el siguiente inventario de todos los prudctos producidos y vendidos por nosotros</h3>"
+           "<p><h2>ID&nbsp; &nbsp; &nbsp;Tipo&nbsp; &nbsp; &nbsp;Nombre&nbsp; &nbsp; &nbsp; Raciones</h2></p>"
+           "<hr />";
+
+    QSqlQuery postres;
+    postres.prepare("SELECT idComida,tipo,nombre,raciones from comida");
+    postres.exec();
+    while(postres.next())
+    {
+        QString idcomida = postres.value(0).toString();
+        QString tipo = postres.value(1).toString();
+        QString nombre = postres.value(2).toString();
+        QString raciones = postres.value(3).toString();
+    html +="<br>"+idcomida+"&nbsp; &nbsp; &nbsp; "+tipo+"&nbsp; &nbsp; &nbsp; "+nombre+" &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;"+raciones+"<hr />";
+    }
+
+
+    QTextDocument document;
+    document.setHtml(html);
+
+    QPrinter printer(QPrinter::PrinterResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setPaperSize(QPrinter::A4);
+    printer.setOutputFileName("/tmp/Inventario.pdf");
+    printer.setPageMargins(QMarginsF(15, 15, 15, 15));
+
+    document.print(&printer);
+    QDesktopServices::openUrl(QUrl::fromLocalFile("/tmp/Inventario.pdf"));
+}
+
