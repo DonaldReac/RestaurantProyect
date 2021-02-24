@@ -20,6 +20,8 @@ mesero::mesero(int Id, QWidget *parent) :
     this->Id.toUInt();
     ui->setupUi(this);
 
+    ui->total->setDisabled(true);
+
     //BUSQUEDA DE PLATILLOS PARA EL MESERO Y VERIFICAR SU DISPONIBILIDAD
 
     QStringList elementos;
