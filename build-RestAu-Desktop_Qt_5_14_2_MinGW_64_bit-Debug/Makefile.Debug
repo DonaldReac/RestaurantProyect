@@ -128,11 +128,13 @@ debug/qrc_Img.cpp: ../RestAu/Img.qrc \
 		../RestAu/img/Iconos/Waiter_Male_Light.png \
 		../RestAu/img/Iconos/Waiter_Male_Dark.png \
 		../RestAu/img/Iconos/trabajando\ (1).png \
+		../RestAu/img/Iconos/iconfinder_My_order_6457548.png \
 		../RestAu/img/Iconos/pan.png \
 		../RestAu/img/Iconos/mesa.png \
 		../RestAu/img/Iconos/iconfinder_person_3_1376034.png \
 		../RestAu/img/Iconos/Tortitas-avena-y-plátano-YouTube.jpg \
 		../RestAu/img/Iconos/semaforos.png \
+		../RestAu/img/Iconos/codigobarras.jfif \
 		../RestAu/img/Iconos/logosinfondo.png \
 		../RestAu/img/Iconos/anadir.png \
 		../RestAu/img/Iconos/hot-cakes-tradicionales.png \
@@ -523,6 +525,11 @@ debug/moc_iniciosesion.cpp: ../RestAu/iniciosesion.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QWidget \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QString \
 		../RestAu/mesero.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsPixmapItem \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgraphicsitem.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsScene \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgraphicsscene.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qpen.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.14.2/mingw73_64/bin/moc.exe
 	C:\Qt\5.14.2\mingw73_64\bin\moc.exe $(DEFINES) --include C:/Users/jukro/Documents/GitHub/RestaurantProyect/build-RestAu-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.14.2/mingw73_64/mkspecs/win32-g++ -IC:/Users/jukro/Documents/GitHub/RestaurantProyect/RestAu -IC:/Qt/5.14.2/mingw73_64/include -IC:/Qt/5.14.2/mingw73_64/include/QtPrintSupport -IC:/Qt/5.14.2/mingw73_64/include/QtWidgets -IC:/Qt/5.14.2/mingw73_64/include/QtGui -IC:/Qt/5.14.2/mingw73_64/include/QtANGLE -IC:/Qt/5.14.2/mingw73_64/include/QtSql -IC:/Qt/5.14.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\RestAu\iniciosesion.h -o debug\moc_iniciosesion.cpp
@@ -644,6 +651,11 @@ debug/moc_mesero.cpp: ../RestAu/mesero.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtSql/qsqlquery.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsPixmapItem \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgraphicsitem.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsScene \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgraphicsscene.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qpen.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.14.2/mingw73_64/bin/moc.exe
 	C:\Qt\5.14.2\mingw73_64\bin\moc.exe $(DEFINES) --include C:/Users/jukro/Documents/GitHub/RestaurantProyect/build-RestAu-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.14.2/mingw73_64/mkspecs/win32-g++ -IC:/Users/jukro/Documents/GitHub/RestaurantProyect/RestAu -IC:/Qt/5.14.2/mingw73_64/include -IC:/Qt/5.14.2/mingw73_64/include/QtPrintSupport -IC:/Qt/5.14.2/mingw73_64/include/QtWidgets -IC:/Qt/5.14.2/mingw73_64/include/QtGui -IC:/Qt/5.14.2/mingw73_64/include/QtANGLE -IC:/Qt/5.14.2/mingw73_64/include/QtSql -IC:/Qt/5.14.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\RestAu\mesero.h -o debug\moc_mesero.cpp
@@ -830,7 +842,11 @@ debug/anfitrion.o: ../RestAu/anfitrion.cpp ../RestAu/anfitrion.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmainwindow.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../RestAu/gerente.h \
-		../RestAu/mesero.h
+		../RestAu/mesero.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsPixmapItem \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgraphicsitem.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsScene \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgraphicsscene.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\anfitrion.o ..\RestAu\anfitrion.cpp
 
 debug/gerente.o: ../RestAu/gerente.cpp ../RestAu/gerente.h \
@@ -1003,7 +1019,11 @@ debug/gerente.o: ../RestAu/gerente.cpp ../RestAu/gerente.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmainwindow.h \
 		../RestAu/anfitrion.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QString \
-		../RestAu/mesero.h
+		../RestAu/mesero.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsPixmapItem \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgraphicsitem.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsScene \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgraphicsscene.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\gerente.o ..\RestAu\gerente.cpp
 
 debug/main.o: ../RestAu/main.cpp ../RestAu/iniciosesion.h \
@@ -1130,6 +1150,11 @@ debug/main.o: ../RestAu/main.cpp ../RestAu/iniciosesion.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QWidget \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QString \
 		../RestAu/mesero.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsPixmapItem \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgraphicsitem.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsScene \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgraphicsscene.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qpen.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QApplication \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qapplication.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qcoreapplication.h \
@@ -1268,6 +1293,11 @@ debug/iniciosesion.o: ../RestAu/iniciosesion.cpp ../RestAu/iniciosesion.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QWidget \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QString \
 		../RestAu/mesero.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsPixmapItem \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgraphicsitem.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsScene \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgraphicsscene.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qpen.h \
 		ui_iniciosesion.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QVariant \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/QIcon \
@@ -1290,7 +1320,6 @@ debug/iniciosesion.o: ../RestAu/iniciosesion.cpp ../RestAu/iniciosesion.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlineedit.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextcursor.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextformat.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qpen.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextoption.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMenuBar \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmenubar.h \
@@ -1425,6 +1454,11 @@ debug/mesero.o: ../RestAu/mesero.cpp ../RestAu/mesero.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtSql/qsqlquery.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsPixmapItem \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgraphicsitem.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGraphicsScene \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgraphicsscene.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qpen.h \
 		ui_mesero.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QVariant \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/QIcon \
@@ -1460,11 +1494,15 @@ debug/mesero.o: ../RestAu/mesero.cpp ../RestAu/mesero.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlineedit.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextcursor.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextformat.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qpen.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QListWidget \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlistview.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QPushButton \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QSpinBox \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qspinbox.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QStackedWidget \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qstackedwidget.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QTableWidget \
@@ -1476,7 +1514,26 @@ debug/mesero.o: ../RestAu/mesero.cpp ../RestAu/mesero.h \
 		../RestAu/gerente.h \
 		../RestAu/anfitrion.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/QStandardItemModel \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qstandarditemmodel.h
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qstandarditemmodel.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtPrintSupport/QPrintDialog \
+		C:/Qt/5.14.2/mingw73_64/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtPrintSupport/qtprintsupportglobal.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtPrintSupport/qtprintsupport-config.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtPrintSupport/qabstractprintdialog.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtPrintSupport/QPrinter \
+		C:/Qt/5.14.2/mingw73_64/include/QtPrintSupport/qprinter.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qpagedpaintdevice.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qpagelayout.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qpagesize.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/QPdfWriter \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qpdfwriter.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/QTextDocument \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qtextdocument.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/QDesktopServices \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qdesktopservices.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qstandardpaths.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/QPainter \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qpainter.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mesero.o ..\RestAu\mesero.cpp
 
 debug/qrc_Img.o: debug/qrc_Img.cpp 

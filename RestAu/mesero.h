@@ -9,6 +9,9 @@
 #include <QSqlQuery>
 #include <QMessageBox>
 #include <qdebug.h>
+#include <QGraphicsPixmapItem>
+#include <QGraphicsScene>
+
 
 namespace Ui {
 class mesero;
@@ -36,10 +39,15 @@ private slots:
 
     void on_NuevoPedido_clicked();
 
+    void on_CrearPedido_clicked();
+
+    void on_listapedido_itemSelectionChanged();
+
 private:
     Ui::mesero *ui;
     QSqlDatabase  conexion;
     QString Id;
+    int importe,totalcomida,importetotal;
 
 };
 

@@ -2,8 +2,16 @@
 #include "ui_mesero.h"
 #include "iniciosesion.h"
 #include "QStandardItemModel"
+#include "QPrintDialog"
+#include <QPrinter>
+#include <string>
+#include "string"
+#include "QPrintDialog"
+#include <QPdfWriter>
+#include <QTextDocument>
+#include <QDesktopServices>
+#include <QPainter>
 
-#define STR_EQUAL 0
 mesero::mesero(int Id, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::mesero)
@@ -11,6 +19,8 @@ mesero::mesero(int Id, QWidget *parent) :
     this->Id = Id;
     this->Id.toUInt();
     ui->setupUi(this);
+
+    //BUSQUEDA DE PLATILLOS PARA EL MESERO Y VERIFICAR SU DISPONIBILIDAD
 
     QStringList elementos;
 
@@ -41,6 +51,77 @@ mesero::mesero(int Id, QWidget *parent) :
         ui->TablaPlatillos->setItem(ui->TablaPlatillos->rowCount()-1,5,new QTableWidgetItem(tipo));
 
     }
+
+    //Creacion del drag and drop para la inicializacion del pedido
+    QSqlQuery comida;
+
+    //primera lista con el menu que se va a desplegar (desayunos)
+    ui->listamenu->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->listamenu->setDragEnabled(true);
+    ui->listamenu->setDragDropMode(QAbstractItemView::DragDrop);
+    ui->listamenu->viewport()->setAcceptDrops(false);
+    ui->listamenu->setDropIndicatorShown(true);
+
+    //primera lista con el menu que se va a desplegar (bebidas)
+    ui->bebidas->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->bebidas->setDragEnabled(true);
+    ui->bebidas->setDragDropMode(QAbstractItemView::DragDrop);
+    ui->bebidas->viewport()->setAcceptDrops(false);
+    ui->bebidas->setDropIndicatorShown(true);
+
+    //primera lista con el menu que se va a desplegar (postres)
+    ui->postres->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->postres->setDragEnabled(true);
+    ui->postres->setDragDropMode(QAbstractItemView::DragDrop);
+    ui->postres->viewport()->setAcceptDrops(false);
+    ui->postres->setDropIndicatorShown(true);
+
+
+    //segunda lista con los elementos seleccionados
+
+    ui->listapedido->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->listapedido->setDragEnabled(true);
+    ui->listapedido->setDragDropMode(QAbstractItemView::DragDrop);
+    ui->listapedido->viewport()->setAcceptDrops(true);
+    ui->listapedido->setDropIndicatorShown(true);
+
+    comida.prepare("select idcomida,nombre,descripcion,raciones,costo,tipo from comida");
+    comida.exec();
+
+
+    //segmento los alimentos, el postre y la comida en varios qlistwidget para mejor usabilidad y los agrego a sus respectivas listas para el drag and drop
+    while(comida.next()){
+        QString idcomida = comida.value(0).toString();
+        QString nom = comida.value(1).toString();
+        QString des = comida.value(2).toString();
+        QString rac = comida.value(3).toString();
+        QString cos = comida.value(4).toString();
+        QString tip = comida.value(5).toString();
+
+        if(comida.value(5) == "Desayunos"){
+
+            QString datos = "Nombre: " +nom + "\nCosto: " +cos;
+            QListWidgetItem * menu = new QListWidgetItem;
+            menu->setText(datos);
+            ui->listamenu->addItem(datos);
+        }
+
+        if(comida.value(5) == "Bebidas"){
+
+            QString bebidas = "Nombre: " +nom + "\nCosto: " +cos;
+            QListWidgetItem * bebida = new QListWidgetItem;
+            bebida->setText(bebidas);
+            ui->bebidas->addItem(bebidas);
+        }
+
+        if(comida.value(5) == "Postres"){
+
+            QString postres = "Nombre: " +nom + "\nCosto: " +cos;
+            QListWidgetItem * postre = new QListWidgetItem;
+            postre->setText(postres);
+            ui->postres->addItem(postres);
+        }
+    }
 }
 
 mesero::~mesero()
@@ -58,6 +139,8 @@ void mesero::on_Salir_clicked()
 
 void mesero::on_lineEdit_textChanged(const QString &arg1)
 {
+
+    //FUNCION PARA QUE SE BUSQUE EN TUEMPO REAL ESTE PEDO
     ui->TablaPlatillos->setColumnCount(0);
     ui->TablaPlatillos->setRowCount(0);
 
@@ -96,9 +179,97 @@ void mesero::on_Buscar_clicked()
     ui->stackedWidget->setCurrentIndex(0);
 }
 
-
-
 void mesero::on_NuevoPedido_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
+}
+
+void mesero::on_CrearPedido_clicked()
+{
+    QStringList compra;
+    QString pedido;
+    QString imp;
+    QString montofinal;
+    //la variable venta descompone el qstringlist en una sola cadena
+    QString venta;
+    QString Importe;
+    QMessageBox message1;
+    importetotal = 0;
+    int cont = ui->listapedido->count();
+
+    //if para verificar que en la segunda qlist hayan elementos y trabajar sobre ellos generando un contador y usado en el for
+    if(cont != 0){
+        for(int i =0; i < cont; i++){
+            QListWidgetItem * pedi = ui->listapedido->item(i);
+            //la variable pedido almacena los datos de los platillos que se han seleccionado
+            pedido = pedi->text();
+
+            //uso la funcion right para obtener los precios del string pedido ya que se almacena como cadena, obtengo los ultimos caracteres que es el costo y de ahi mero
+            imp = pedido.right(2);
+            //lo convierto a int
+            totalcomida = imp.toInt();
+            //y lo sumo para obtener el importe total
+            importetotal += totalcomida;
+
+            ui->total->setValue(importetotal);
+
+            //dentro de este qlist almaceno los datos del pedido para segmentarlos despues en el ticket
+            compra << pedido;
+
+        }
+
+        //convierto la variable del importe total a string para su impresion
+        Importe = QString::number(importetotal);
+
+        //RECORDATORIO PARA MARTES, CONVERTIR EL QSTRINGLIST TO QSTRING
+
+        //conversion QLIst to String
+        //la funcion join une todos los elementos de un qstringlist a un solo string delimitado por lo que le pases, en este caso son espacios nomas
+        venta = compra.join("        ");
+
+        //mensaje de validacion dirias tu mi amor
+        message1.setWindowTitle("Agregar Pedido");
+        message1.setIcon(QMessageBox::Question);
+        message1.setText("¿Esta seguro de que desea iniciar el siguiente pedido?");
+        QAbstractButton * btnYes = message1.addButton(tr("Si"),QMessageBox::YesRole);
+        QAbstractButton * btnNo = message1.addButton(tr("No"),QMessageBox::YesRole);
+        message1.exec();
+
+           if(message1.clickedButton() == btnYes){
+
+
+                //CAMBIEN LA DIRECCION DONDE SE VA A GENERAR EL PDF
+               QPdfWriter pdf("/Users/jukro/Desktop/Ticket.pdf");
+
+               QPainter painter(&pdf);
+
+               painter.setPen(Qt::black);
+               painter.drawText(100,0,"Le Restau: Tripa Vacia, Corazon Sin Alegria. ");
+               painter.drawText(100,400,"Avenida San Claudio, Blvrd 14 Sur, Cdad. Universitaria, 72592 Puebla, Pue.");
+               painter.drawText(100,600,"Codigo Postal: 78653");
+               painter.drawText(100,800,"Ticket de compra/venta.");
+               painter.drawText(100,1000,"---------------------------------------------------------------------------");
+               painter.drawText(100,1200, venta);
+               painter.drawText(100,1400,"Importe: $" + Importe + "");
+               painter.drawText(100,1600,"----------------------------------------------------------------------------");
+               painter.drawText(100,1800,"Dudas y Aclaraciones al 2441263382 ");
+               painter.drawText(100,2000,"Pago realizado con MASTERCARD **************4325 en una sola exhibicion. ");
+               painter.drawText(100,2200,"Muchas gracias por su compra.");
+               painter.drawText(100,2400,"14/Febrero/2021 19:45:13");
+               painter.drawPixmap(QRect(100,2600,2000,300),QPixmap("://img/Iconos/codigobarras.jfif"));
+
+               painter.drawText(100,3100,"¡Reviens Vite!");
+               painter.end();
+
+               QMessageBox::information(this,"Pedido","El pedido se ha realizado correctamente.","Aceptar");
+           }
+        }
+    else{
+        QMessageBox::warning(this,"Error","No se ha podido crear el ticket de compra. ","Aceptar");
+    }
+}
+
+void mesero::on_listapedido_itemSelectionChanged()
+{
+    ui->listapedido->setAcceptDrops(false);
 }

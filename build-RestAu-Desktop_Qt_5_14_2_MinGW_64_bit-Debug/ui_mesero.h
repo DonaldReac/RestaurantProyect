@@ -16,7 +16,9 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QWidget>
@@ -37,15 +39,26 @@ public:
     QLineEdit *lineEdit;
     QTableWidget *TablaPlatillos;
     QWidget *page_2;
+    QListWidget *listamenu;
+    QListWidget *listapedido;
+    QListWidget *bebidas;
+    QListWidget *postres;
+    QLabel *label_3;
+    QLabel *label_4;
+    QLabel *label_5;
+    QLabel *label_6;
+    QPushButton *CrearPedido;
+    QLabel *label_7;
+    QSpinBox *total;
 
     void setupUi(QDialog *mesero)
     {
         if (mesero->objectName().isEmpty())
             mesero->setObjectName(QString::fromUtf8("mesero"));
-        mesero->resize(718, 450);
+        mesero->resize(831, 481);
         widget = new QWidget(mesero);
         widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(0, 0, 151, 451));
+        widget->setGeometry(QRect(0, 0, 151, 481));
         widget->setStyleSheet(QString::fromUtf8("QWidget{\n"
 "background-color: #C0C4CF;\n"
 "border-right: 1px solid;\n"
@@ -115,13 +128,13 @@ public:
         NuevoPedido->setIconSize(QSize(30, 30));
         stackedWidget = new QStackedWidget(mesero);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
-        stackedWidget->setGeometry(QRect(150, 0, 561, 451));
+        stackedWidget->setGeometry(QRect(150, 0, 681, 491));
         stackedWidget->setStyleSheet(QString::fromUtf8("background-color: #faf4ee;"));
         page = new QWidget();
         page->setObjectName(QString::fromUtf8("page"));
         label_2 = new QLabel(page);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(210, 30, 171, 31));
+        label_2->setGeometry(QRect(270, 30, 171, 31));
         QFont font;
         font.setFamily(QString::fromUtf8("Caviar Dreams"));
         font.setPointSize(18);
@@ -129,22 +142,85 @@ public:
         label_2->setFont(font);
         lineEdit = new QLineEdit(page);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(30, 80, 521, 31));
+        lineEdit->setGeometry(QRect(30, 80, 621, 31));
         lineEdit->setStyleSheet(QString::fromUtf8("border: 1px solid; \n"
 "border-radius: 10px;"));
         lineEdit->setAlignment(Qt::AlignCenter);
         TablaPlatillos = new QTableWidget(page);
         TablaPlatillos->setObjectName(QString::fromUtf8("TablaPlatillos"));
-        TablaPlatillos->setGeometry(QRect(10, 140, 551, 291));
+        TablaPlatillos->setGeometry(QRect(20, 130, 641, 341));
         TablaPlatillos->setStyleSheet(QString::fromUtf8("background-color: white;"));
         stackedWidget->addWidget(page);
         page_2 = new QWidget();
         page_2->setObjectName(QString::fromUtf8("page_2"));
+        listamenu = new QListWidget(page_2);
+        listamenu->setObjectName(QString::fromUtf8("listamenu"));
+        listamenu->setGeometry(QRect(20, 30, 251, 121));
+        listamenu->setStyleSheet(QString::fromUtf8("background-color:white;\n"
+""));
+        listapedido = new QListWidget(page_2);
+        listapedido->setObjectName(QString::fromUtf8("listapedido"));
+        listapedido->setGeometry(QRect(330, 30, 256, 351));
+        listapedido->setStyleSheet(QString::fromUtf8("background-color:white;"));
+        bebidas = new QListWidget(page_2);
+        bebidas->setObjectName(QString::fromUtf8("bebidas"));
+        bebidas->setGeometry(QRect(20, 190, 256, 121));
+        bebidas->setStyleSheet(QString::fromUtf8("background-color:white;"));
+        postres = new QListWidget(page_2);
+        postres->setObjectName(QString::fromUtf8("postres"));
+        postres->setGeometry(QRect(20, 350, 256, 121));
+        postres->setStyleSheet(QString::fromUtf8("background-color:white;"));
+        label_3 = new QLabel(page_2);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(100, 10, 81, 16));
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("Caviar Dreams"));
+        font1.setPointSize(12);
+        font1.setItalic(true);
+        label_3->setFont(font1);
+        label_4 = new QLabel(page_2);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(100, 160, 71, 21));
+        label_4->setFont(font1);
+        label_5 = new QLabel(page_2);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setGeometry(QRect(100, 320, 61, 21));
+        label_5->setFont(font1);
+        label_6 = new QLabel(page_2);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setGeometry(QRect(430, 10, 61, 16));
+        label_6->setFont(font1);
+        CrearPedido = new QPushButton(page_2);
+        CrearPedido->setObjectName(QString::fromUtf8("CrearPedido"));
+        CrearPedido->setGeometry(QRect(560, 410, 111, 51));
+        CrearPedido->setStyleSheet(QString::fromUtf8("QPushButton\n"
+"{\n"
+"  border:0px solid gray;\n"
+"  padding: 0 8px;\n"
+"  background: yellow;\n"
+"background-color: rgba(216, 223, 233,0);\n"
+"}\n"
+"QPushButton:hover\n"
+"{\n"
+"	background-color: rgb(223, 138, 19);\n"
+"}"));
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/img/Iconos/iconfinder_My_order_6457548.png"), QSize(), QIcon::Normal, QIcon::Off);
+        CrearPedido->setIcon(icon3);
+        CrearPedido->setIconSize(QSize(30, 30));
+        label_7 = new QLabel(page_2);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setGeometry(QRect(370, 420, 91, 31));
+        label_7->setFont(font1);
+        total = new QSpinBox(page_2);
+        total->setObjectName(QString::fromUtf8("total"));
+        total->setGeometry(QRect(440, 420, 81, 31));
+        total->setMaximum(9999);
         stackedWidget->addWidget(page_2);
 
         retranslateUi(mesero);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(mesero);
@@ -159,6 +235,12 @@ public:
         NuevoPedido->setText(QCoreApplication::translate("mesero", "Agregar", nullptr));
         label_2->setText(QCoreApplication::translate("mesero", "Buscar Platillos", nullptr));
         lineEdit->setPlaceholderText(QCoreApplication::translate("mesero", "ID PLATILLO", nullptr));
+        label_3->setText(QCoreApplication::translate("mesero", "Desayunos", nullptr));
+        label_4->setText(QCoreApplication::translate("mesero", "Bebidas", nullptr));
+        label_5->setText(QCoreApplication::translate("mesero", "Postres", nullptr));
+        label_6->setText(QCoreApplication::translate("mesero", "Orden", nullptr));
+        CrearPedido->setText(QCoreApplication::translate("mesero", "Crear Pedido", nullptr));
+        label_7->setText(QCoreApplication::translate("mesero", "Importe: ", nullptr));
     } // retranslateUi
 
 };
