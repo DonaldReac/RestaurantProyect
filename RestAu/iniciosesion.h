@@ -9,6 +9,7 @@
 #include <qdebug.h>
 #include "gerente.h"
 #include "anfitrion.h"
+#include "mesero.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class InicioSesion; }

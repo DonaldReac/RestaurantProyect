@@ -19,17 +19,20 @@ SOURCES += \
     anfitrion.cpp \
     gerente.cpp \
     main.cpp \
-    iniciosesion.cpp
+    iniciosesion.cpp \
+    mesero.cpp
 
 HEADERS += \
     anfitrion.h \
     gerente.h \
-    iniciosesion.h
+    iniciosesion.h \
+    mesero.h
 
 FORMS += \
     anfitrion.ui \
     gerente.ui \
-    iniciosesion.ui
+    iniciosesion.ui \
+    mesero.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

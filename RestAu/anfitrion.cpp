@@ -89,8 +89,6 @@ void Anfitrion::on_Mesa_1_clicked()
         CambiarValoresMesero.prepare("update mesero set estado = 'No Disponible' where idMesero= '"+asignarMesero.value(0).toString()+"'");
         CambiarValoresMesero.exec();
         CambiarValoresMesero.next();
-
-
     }
 }
 

@@ -202,6 +202,9 @@ QPushButton:hover
    <property name="styleSheet">
     <string notr="true">background-color: #faf4ee;</string>
    </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
    <widget class="QWidget" name="BuscarUsuario">
     <property name="styleSheet">
      <string notr="true">QPushButton

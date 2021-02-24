@@ -43,9 +43,6 @@ gerente::gerente(QWidget *parent) :
                 ui->tableusuario->setItem(ui->tableusuario->rowCount()-1,3,new QTableWidgetItem(Apellidop));
                 ui->tableusuario->setItem(ui->tableusuario->rowCount()-1,4,new QTableWidgetItem(puesto));
                 ui->tableusuario->setItem(ui->tableusuario->rowCount()-1,5,new QTableWidgetItem(edad));
-
-
-
     }
 }
 
