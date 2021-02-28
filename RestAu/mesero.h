@@ -47,7 +47,8 @@ private:
     Ui::mesero *ui;
     QSqlDatabase  conexion;
     QString Id;
-    int importe,totalcomida,importetotal;
+    int importe,totalcomida,importetotal,idco;
+
 
 };
 

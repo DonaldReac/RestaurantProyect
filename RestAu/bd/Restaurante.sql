@@ -60,9 +60,11 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `restaurant`.`comida` (
   `idComida` INT(11) NOT NULL AUTO_INCREMENT,
-  `descripcion` VARCHAR(80) CHARACTER SET 'utf8' NOT NULL,
+  `nombre` nvarchar(50),
+  `descripcion` VARCHAR(200) CHARACTER SET 'utf8' NOT NULL,
   `raciones` INT(11) NOT NULL,
   `costo` INT(11) NOT NULL,
+  `tipo` nvarchar(20),
   `Imagen` LONGBLOB NULL DEFAULT NULL,
   PRIMARY KEY (`idComida`))
 ENGINE = InnoDB
@@ -120,18 +122,11 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `restaurant`.`gerente` (
   `idGerente` INT(11) NOT NULL,
-  `comida_idComida` INT(11) NOT NULL,
   PRIMARY KEY (`idGerente`),
   INDEX `fk_Gerente_Usuario1_idx` (`idGerente` ASC) ,
-  INDEX `fk_Gerente_comida1_idx` (`comida_idComida` ASC) ,
   CONSTRAINT `fk_Gerente_Usuario1`
     FOREIGN KEY (`idGerente`)
     REFERENCES `restaurant`.`usuario` (`idUsuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Gerente_comida1`
-    FOREIGN KEY (`comida_idComida`)
-    REFERENCES `restaurant`.`comida` (`idComida`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -176,8 +171,10 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 -- Table `restaurant`.`orden`
 -- -----------------------------------------------------
+drop table orden;
+
 CREATE TABLE IF NOT EXISTS `restaurant`.`orden` (
-  `idOrden` INT(11) NOT NULL AUTO_INCREMENT,
+  `idOrden` INT(11) NOT NULL auto_increment,
   `idCocinero` INT(11) NOT NULL,
   `importe` INT(11) NOT NULL,
   `idComida` INT(11) NOT NULL,
@@ -220,12 +217,168 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 ALTER TABLE `usuario` AUTO_INCREMENT = 10000;
 
+DELIMITER $$
+CREATE PROCEDURE InsertarMesero(NOMBRE VARCHAR(45),ApellidoPaterno VARCHAR(45), ApellidoMaterno VARCHAR(45),edad int,Password int)
+BEGIN
+    insert into usuario (nombre,apellidoMaterno,apellidoPaterno,puesto,edad,password) 
+    values (NOMBRE,ApellidoPaterno,ApellidoMaterno,'Mesero',edad,Password);
+    
+    insert into mesero(idMesero,estado)
+    values ((SELECT MAX(idUsuario)FROM Usuario),'Disponible');
+END $$
 
-insert into usuario (nombre,apellidoMaterno,apellidoPaterno,puesto,edad) values ('Luis Donaldo','Galloso','Tapia','Mesero',21);
-insert into usuario (nombre,apellidoMaterno,apellidoPaterno,puesto,edad) values ('Juan Carlos','Pablo','Santos','Mesero',20);
+DELIMITER $$
+CREATE PROCEDURE InsertarAnfitrion(NOMBRE VARCHAR(45),ApellidoPaterno VARCHAR(45), ApellidoMaterno VARCHAR(45),edad int,Password int)
+BEGIN
+    insert into usuario (nombre,apellidoMaterno,apellidoPaterno,puesto,edad,password) 
+    values (NOMBRE,ApellidoPaterno,ApellidoMaterno,'Anfitrion',edad,Password);
+    
+    insert into anfitrion(idAnfitrion)
+    values ((SELECT MAX(idUsuario)FROM Usuario));
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE InsertarCocinero(NOMBRE VARCHAR(45),ApellidoPaterno VARCHAR(45), ApellidoMaterno VARCHAR(45),edad int,Password int)
+BEGIN
+    insert into usuario (nombre,apellidoMaterno,apellidoPaterno,puesto,edad,password) 
+    values (NOMBRE,ApellidoPaterno,ApellidoMaterno,'Cocinero',edad,Password);
+    
+    insert into cocinero(idCocinero)
+    values ((SELECT MAX(idUsuario)FROM Usuario));
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE InsertarGerente(NOMBRE VARCHAR(45),ApellidoPaterno VARCHAR(45), ApellidoMaterno VARCHAR(45),edad int,Password int)
+BEGIN
+    insert into usuario (nombre,apellidoMaterno,apellidoPaterno,puesto,edad,password) 
+    values (NOMBRE,ApellidoPaterno,ApellidoMaterno,'Gerente',edad,Password);
+    
+    insert into gerente(idGerente)
+    values ((SELECT MAX(idUsuario)FROM Usuario));
+END $$
+
+
+
+use restaurant;
 select * from usuario;
+
+DELIMITER $$
+CREATE PROCEDURE InsertarMesa(idMesa int,estado VARCHAR(45))
+BEGIN
+    insert into mesa (idMesa,estado) 
+    values (idMesa,estado);
+    
+END $$
+
+/*
+use restaurant;
+select * from mesa;
+select * from mesero;
+select u.idusuario,u.nombre,m.estado from usuario as u inner join mesero as m on u.idUsuario=m.idMesero where m.estado='Disponible' limit 1;
+select u.idusuario,u.nombre,m.estado from usuario as u inner join mesero as m on u.idUsuario=m.idMesero where m.estado='Disponible' limit 1;
+
+update mesa set estado = 'Disponible', mesero_idMesero=null where idMesa>0;
+update mesero set estado = "disponible" where idMesero >1;  
+rollback;*/
+
+ALTER TABLE `comida` AUTO_INCREMENT = 12000;
+
+DELIMITER $$
+CREATE PROCEDURE InsertarBebida(Nombre nvarchar(45), Descripcion nvarchar(200),Raciones int, Costo int, Tipo nvarchar(20))
+begin
+	insert into comida (nombre,descripcion,raciones,costo,tipo) 
+    values (Nombre,Descripcion,Raciones,Costo,Tipo);
+    
+    insert into bebidas (idComida_bebidas)
+    values ((select MAX(idComida) from comida));
+
+end $$
+
+DELIMITER $$
+CREATE PROCEDURE InsertarPostre(Nombre nvarchar(45), Descripcion nvarchar(200),Raciones int, Costo int, Tipo nvarchar(20))
+begin
+	insert into comida (nombre,descripcion,raciones,costo,tipo) 
+    values (Nombre,Descripcion,Raciones,Costo,Tipo);
+    
+    insert into postres (idComida_postres)
+    values ((select MAX(idComida) from comida));
+
+end $$
+
+DELIMITER $$
+CREATE PROCEDURE InsertarDesayuno(Nombre nvarchar(45), Descripcion nvarchar(200),Raciones int, Costo int, Tipo nvarchar(20))
+begin
+	insert into comida (nombre,descripcion,raciones,costo,tipo) 
+    values (Nombre,Descripcion,Raciones,Costo,Tipo);
+    
+    insert into desayunos (dComida_desayuno)
+    values ((select MAX(idComida) from comida));
+
+end $$
+
+DELIMITER $$
+CREATE PROCEDURE InsertarOrden(idCocinero INT,importe INT, idComida INT,mesa_idMesa INT)
+BEGIN
+    insert into orden (idCocinero,importe,idComida,mesa_idMesa) 
+    values (idCocinero,importe,idComida,mesa_idMesa);
+END $$
+
+CALL InsertarMesero('Pedro','Garcia','Sanchez',23,123);
+CALL InsertarMesero('Juan','Perez','Santos',23,123);
+CALL InsertarMesero('fany','Tapia','Sanchez',23,123);
+CALL InsertarMesero('Tomas','rojas','Santos',23,123);
+
+CALL InsertarAnfitrion('Donaldo','Garcia','Rojas',30,123);
+
+CALL InsertarCocinero('Tomas','Garcia','Hernandez',35,123);
+
+CALL InsertarGerente('Ileana','Rivera','Hernandez',35,123);
+
+CALL InsertarMesa(1,'Disponible');
+CALL InsertarMesa(2,'Disponible');
+CALL InsertarMesa(3,'Disponible');
+CALL InsertarMesa(4,'Disponible');
+
+call InsertarBebida("Cafe Americano","Cafe caliente, puede ser descafeinado.",100,20,"Bebidas");
+call InsertarBebida("Cafe Capuccino","Cafe caliente, puede ser descafeinado",100,20,"Bebidas");
+call InsertarBebida("Te","Te caliente. ",100,25,"Bebidas");
+call InsertarBebida("Leche","Taza de leche templada al gusto.",100,20,"Bebidas");
+call InsertarBebida("Te Helado","Cafe caliente",100,10,"Bebidas");
+call InsertarBebida("Leche con chocolate","Leche con chocolate en polvo. Templada al gusto.",100,30,"Bebidas");
+call InsertarBebida("Chocolate Caliente","Bebida tradicional a base de leche sabor chocolate. Puede ser templada al gusto.",100,20,"Bebidas");
+call InsertarBebida("Naranjada","Bebida refrescante que se prepara mezclando jugo de naranja, agua y azúcar.",10,25,"Bebidas");
+call InsertarBebida("Limonada","Bebida refrescante que se prepara mezclando jugo de limon, agua y azúcar.",10,25,"Bebidas");
+call InsertarBebida("Jugos","Naranja, Toronja,Zanahoria,Betabel,Manzana",100,25,"Bebidas");
+call InsertarBebida("Refrescos","Coca-Cola,Sprite,Fanta, Dr. Pepper, Lift, Del Valle, Fuze Tea",100,25,"Bebidas");
+call InsertarBebida("Agua embotellada","Ciel, Bonafont",100,20,"Bebidas");
+
+call InsertarPostre("Pastel de Chocolate","Rebanada de pastel de chocolate de 3 leches.",10,35,"Postres");
+call InsertarPostre("Flan Napolitano","Rebanada de flan napolitano con guarnicion de chocolate.",10,45,"Postres");
+call InsertarPostre("Malteadas","Chocolate, Fresa, Vainilla, Moka, Nutella.",10,20,"Postres");
+call InsertarPostre("Ice Cream Sundae ","Helado de vainilla bañado adornado con chocolate,crema batida y una cereza",5,50,"Postres");
+call InsertarPostre("Banana Split","Postre a base de bananas, helado de chocolate, vainilla y fresa",10,45,"Postres");
+
+call InsertarDesayuno("Chilaquiles con pollo","Rojos o Verdes",20,45,"Desayunos");
+call InsertarDesayuno("Huevos al gusto","Jamon, salchicha, chorizo, frijoles negros, a la mexicana, revueltos, divorciados. ",20,45,"Desayunos");
+call InsertarDesayuno("Hot cakes","Orden de 5 hot-cakes acompañados de mermelada, leche condensada o chocolate.",20,60,"Desayunos");
+call InsertarDesayuno("Club Sandwich","Sándwich con doble piso,tostado, y cortado en cuatro partes. Jamon, Salchicha, Pollo,Atun, Queso",20,35,"Desayunos");
+call InsertarDesayuno("Molletes","3 piezas de pan cortado al medio, untando con frijoles refritos, al que se coloca queso Oaxaca derretido. Acompanado de pico de gallo. ",20,45,"Desayunos");
+call InsertarDesayuno("Coctel de frutas","Acompañado de chile, limon y sal. O en su defecto miel y granola. ",20,30,"Desayunos");
+call InsertarDesayuno("Enchiladas suizas","Orden de 5, rellenas de pollo deshebrado con salsa roja o verde, con crema y queso gratinado por encima.",20,55,"Desayunos");
+call InsertarDesayuno("Enfrijoladas con pollo","Orden de 5, rellenas de queso Oaxaca o Manchego. ",20,50,"Desayunos");
+call InsertarDesayuno("Waffles","Orden de 3 acompañados de crema de vainilla, chocolate, fresas y azúcar glasé",20,55,"Desayunos");
+call InsertarDesayuno("Crispy Chicken Salad","Ensalada verde cubierta con trozos de pollo empanizado o asado, tomate, tocino, quesos de cabra y manchego. Disponible también sin pollo.",20,60,"Desayunos");
+call InsertarDesayuno("Desayuno Continental","Huevos revueltos y salchichas acompañadas de pan tostado con mermelada.",20,60,"Desayunos");
+call InsertarDesayuno("Desayuno Inglés"," Dos huevos fritos, frijoles negros, champiñones, salchichas pequeñas y tomate a la plancha. ",20,60,"Desayunos");
+call InsertarDesayuno("Desayuno Americano","Dos huevos fritos, beicon, salchichas pequeñas, 2 hot'cakes y miel de maple.",20,60,"Desayunos");
+call InsertarDesayuno("Pan Dulce","A su eleccion de la mas fina panaderia mexicana.",20,5,"Desayunos");
+
+use restaurant;
+select * from comida;
+select * from orden;
+select * from cocinero;
+select * from orden;
+select * from mesa;
+

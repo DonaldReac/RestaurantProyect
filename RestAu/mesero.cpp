@@ -31,7 +31,7 @@ mesero::mesero(int Id, QWidget *parent) :
     ui->TablaPlatillos->setHorizontalHeaderLabels(elementos);
 
     QSqlQuery Platillos;
-    Platillos.prepare("select idcomida,nombre,descripcion,raciones,costo,tipo from comida");
+    Platillos.prepare("select idComida,nombre,descripcion,raciones,costo,tipo from comida");
     Platillos.exec();
 
     while(Platillos.next()){
@@ -87,7 +87,7 @@ mesero::mesero(int Id, QWidget *parent) :
     ui->listapedido->viewport()->setAcceptDrops(true);
     ui->listapedido->setDropIndicatorShown(true);
 
-    comida.prepare("select idcomida,nombre,descripcion,raciones,costo,tipo from comida");
+    comida.prepare("select idComida,nombre,descripcion,raciones,costo,tipo from comida");
     comida.exec();
 
 
@@ -102,7 +102,7 @@ mesero::mesero(int Id, QWidget *parent) :
 
         if(comida.value(5) == "Desayunos"){
 
-            QString datos = "Nombre: " +nom + "\nCosto: " +cos;
+            QString datos =idcomida+"\n"+"Nombre: " +nom + "\nCosto: " +cos;
             QListWidgetItem * menu = new QListWidgetItem;
             menu->setText(datos);
             ui->listamenu->addItem(datos);
@@ -110,7 +110,7 @@ mesero::mesero(int Id, QWidget *parent) :
 
         if(comida.value(5) == "Bebidas"){
 
-            QString bebidas = "Nombre: " +nom + "\nCosto: " +cos;
+            QString bebidas = idcomida+"\n"+"Nombre: " +nom + "\nCosto: " +cos;
             QListWidgetItem * bebida = new QListWidgetItem;
             bebida->setText(bebidas);
             ui->bebidas->addItem(bebidas);
@@ -118,7 +118,7 @@ mesero::mesero(int Id, QWidget *parent) :
 
         if(comida.value(5) == "Postres"){
 
-            QString postres = "Nombre: " +nom + "\nCosto: " +cos;
+            QString postres =idcomida+"\n"+"Nombre: " +nom + "\nCosto: " +cos;
             QListWidgetItem * postre = new QListWidgetItem;
             postre->setText(postres);
             ui->postres->addItem(postres);
@@ -195,9 +195,18 @@ void mesero::on_CrearPedido_clicked()
     //la variable venta descompone el qstringlist en una sola cadena
     QString venta;
     QString Importe;
+    QString ID;
+    QString pre;
+    QString mesaa;
     QMessageBox message1;
-    importetotal = 0;
+
+    QString id;
+
+    importetotal= 0;
     int cont = ui->listapedido->count();
+
+    QSqlQuery orden;
+
 
     //if para verificar que en la segunda qlist hayan elementos y trabajar sobre ellos generando un contador y usado en el for
     if(cont != 0){
@@ -218,10 +227,33 @@ void mesero::on_CrearPedido_clicked()
             //dentro de este qlist almaceno los datos del pedido para segmentarlos despues en el ticket
             compra << pedido;
 
+            //------------ Agrega los platillos a la base de datos ------------------
+
+            pre = QString::number(importetotal);
+            qDebug()<<pre;
+
+            QRegExp sep("\\s+");
+            id=pedido.section(sep,0,0);
+            idco=id.toInt();
+
+            ID = QString::number(idco);
+            qDebug()<<ID;
+            //mesa
+            mesaa=ui->mesa->text();
+            qDebug()<<mesaa;
+
+            orden.prepare("call InsertarOrden(10005,'"+pre+"','"+ID+"','"+mesaa+"')");
+            orden.exec();
+
+
         }
 
         //convierto la variable del importe total a string para su impresion
         Importe = QString::number(importetotal);
+        qDebug()<<Importe;
+
+
+
 
         //RECORDATORIO PARA MARTES, CONVERTIR EL QSTRINGLIST TO QSTRING
 
@@ -239,9 +271,8 @@ void mesero::on_CrearPedido_clicked()
 
            if(message1.clickedButton() == btnYes){
 
-
                 //CAMBIEN LA DIRECCION DONDE SE VA A GENERAR EL PDF
-               QPdfWriter pdf("/Users/jukro/Desktop/Ticket.pdf");
+               QPdfWriter pdf("/Users/ilean/Desktop/Ticket.pdf");
 
                QPainter painter(&pdf);
 
@@ -269,7 +300,12 @@ void mesero::on_CrearPedido_clicked()
     else{
         QMessageBox::warning(this,"Error","No se ha podido crear el ticket de compra. ","Aceptar");
     }
+
+
+
 }
+
+
 
 void mesero::on_listapedido_itemSelectionChanged()
 {
