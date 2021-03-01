@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     anfitrion.cpp \
+    cocinero.cpp \
     gerente.cpp \
     main.cpp \
     iniciosesion.cpp \
@@ -24,12 +25,14 @@ SOURCES += \
 
 HEADERS += \
     anfitrion.h \
+    cocinero.h \
     gerente.h \
     iniciosesion.h \
     mesero.h
 
 FORMS += \
     anfitrion.ui \
+    cocinero.ui \
     gerente.ui \
     iniciosesion.ui \
     mesero.ui

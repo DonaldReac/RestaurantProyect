@@ -3,6 +3,7 @@
 #include "gerente.h"
 #include "anfitrion.h"
 #include "mesero.h"
+#include "cocinero.h"
 
 InicioSesion::InicioSesion(QWidget *parent)
     : QMainWindow(parent)
@@ -107,6 +108,8 @@ void InicioSesion::on_pushButton_clicked()
               //Vamos a verificar la conexion
               if(Cocinero.value(0) == ID && Cocinero.value(1) == Contra){
                          qDebug() << "Pudiste entrar al sistema. Bienvenido." ;
+                         cocinero *interCoci = new cocinero(ID.toInt());
+                         interCoci->show();
                          close();
               }
         }

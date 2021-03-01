@@ -1,0 +1,14 @@
+INPUT(
+./debug\anfitrion.o
+./debug\cocinero.o
+./debug\gerente.o
+./debug\main.o
+./debug\iniciosesion.o
+./debug\mesero.o
+./debug\qrc_Img.o
+./debug\moc_anfitrion.o
+./debug\moc_cocinero.o
+./debug\moc_gerente.o
+./debug\moc_iniciosesion.o
+./debug\moc_mesero.o
+);

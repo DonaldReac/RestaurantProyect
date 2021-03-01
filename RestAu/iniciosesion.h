@@ -10,6 +10,7 @@
 #include "gerente.h"
 #include "anfitrion.h"
 #include "mesero.h"
+#include "cocinero.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class InicioSesion; }
