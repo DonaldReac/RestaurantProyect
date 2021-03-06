@@ -36,10 +36,14 @@ private slots:
 
     void on_Mesa_3_clicked();
 
+    void on_BotonTerminado_clicked();
+
 private:
     Ui::cocinero *ui;
     QSqlDatabase  conexion;
     QString id;
+    QString NuMes;
+    int NumeMesa;
 };
 
 #endif // COCINERO_H

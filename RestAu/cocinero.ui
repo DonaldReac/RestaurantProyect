@@ -448,48 +448,7 @@ QPushButton:hover
       </rect>
      </property>
     </widget>
-    <widget class="QPushButton" name="Ordenes_Mesas_2">
-     <property name="geometry">
-      <rect>
-       <x>340</x>
-       <y>340</y>
-       <width>91</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton
-{
-  border:0px solid gray;
-  padding: 0 8px;
-  background: yellow;
-background-color: rgba(216, 223, 233,0);
-}
-QPushButton:hover
-{
-	background-color: rgb(223, 138, 19);
-}</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset resource="Img.qrc">
-       <normaloff>:/img/Iconos/proceso.png</normaloff>:/img/Iconos/proceso.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>30</width>
-       <height>30</height>
-      </size>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="Ordenes_Mesas_3">
+    <widget class="QPushButton" name="BotonTerminado">
      <property name="geometry">
       <rect>
        <x>450</x>
@@ -530,6 +489,16 @@ QPushButton:hover
       </size>
      </property>
     </widget>
+    <widget class="QSpinBox" name="NumeroMesa">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>350</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
     <zorder>Mesa_1</zorder>
     <zorder>Mesa_5</zorder>
     <zorder>Mesa_4</zorder>
@@ -542,8 +511,8 @@ QPushButton:hover
     <zorder>label_2</zorder>
     <zorder>label_4</zorder>
     <zorder>ordenMesa</zorder>
-    <zorder>Ordenes_Mesas_2</zorder>
-    <zorder>Ordenes_Mesas_3</zorder>
+    <zorder>BotonTerminado</zorder>
+    <zorder>NumeroMesa</zorder>
    </widget>
    <widget class="QWidget" name="page_3"/>
   </widget>
