@@ -27,6 +27,8 @@ cocinero::cocinero(int id,QWidget *parent) :
     ui->ordenMesa->viewport()->setAcceptDrops(false);
     ui->ordenMesa->setDropIndicatorShown(true);
 
+    //Query para conocer el estatus de la orden
+    /*
     QSqlQuery estatus;
     QString estat = "En proceso";
     QString Est;
@@ -43,6 +45,7 @@ cocinero::cocinero(int id,QWidget *parent) :
         ui->Mesa_2->setStyleSheet("QPushButton { background-color: #FF7F00; } ");
         ui->Mesa_3->setStyleSheet("QPushButton { background-color: #FF7F00; } ");
     }
+    */
 }
 
 cocinero::~cocinero()
@@ -65,6 +68,7 @@ void cocinero::on_salida_clicked()
 
 void cocinero::on_Mesa_1_clicked()
 {
+    ui->Mesa_1->setStyleSheet("QPushButton { background-color: #FF7F00; } ");
     conexion.open();
     QSqlQuery Orden;
     ui->ordenMesa->clear();
@@ -87,6 +91,7 @@ void cocinero::on_Mesa_1_clicked()
 
 void cocinero::on_Mesa_2_clicked()
 {
+    ui->Mesa_2->setStyleSheet("QPushButton { background-color: #FF7F00; } ");
     conexion.open();
     QSqlQuery Orden;
     ui->ordenMesa->clear();
@@ -108,6 +113,7 @@ void cocinero::on_Mesa_2_clicked()
 
 void cocinero::on_Mesa_3_clicked()
 {
+    ui->Mesa_3->setStyleSheet("QPushButton { background-color: #FF7F00; } ");
     conexion.open();
     QSqlQuery Orden;
     ui->ordenMesa->clear();
@@ -161,7 +167,7 @@ void cocinero::on_BotonTerminado_clicked()
         QSqlQuery finish2;
         finish2.prepare("update orden set estatus = 'Finalizada.' where mesa_idMesa = 2 ");
         finish2.exec();
-        finish2.next();
+      finish2.next();
     }
 
     if(NuMes == Mes3){
@@ -172,7 +178,5 @@ void cocinero::on_BotonTerminado_clicked()
         finish3.exec();
         finish3.next();
     }
-
     }
-
 }
