@@ -26,6 +26,26 @@ cocinero::cocinero(int id,QWidget *parent) :
     ui->ordenMesa->setDragDropMode(QAbstractItemView::DragDrop);
     ui->ordenMesa->viewport()->setAcceptDrops(false);
     ui->ordenMesa->setDropIndicatorShown(true);
+
+    //Query para conocer el estatus de la orden
+    /*
+    QSqlQuery estatus;
+    QString estat = "En proceso";
+    QString Est;
+
+    estatus.prepare("select estatus from orden where mesa_idMesa = 1");
+    estatus.exec();
+
+    if(estatus.next()){
+        Est = estatus.value(0).toString();
+    }
+
+    if(Est == estat){
+        ui->Mesa_1->setStyleSheet("QPushButton { background-color: #FF7F00; } ");
+        ui->Mesa_2->setStyleSheet("QPushButton { background-color: #FF7F00; } ");
+        ui->Mesa_3->setStyleSheet("QPushButton { background-color: #FF7F00; } ");
+    }
+    */
 }
 
 cocinero::~cocinero()
@@ -48,6 +68,7 @@ void cocinero::on_salida_clicked()
 
 void cocinero::on_Mesa_1_clicked()
 {
+    ui->Mesa_1->setStyleSheet("QPushButton { background-color: #FF7F00; } ");
     conexion.open();
     QSqlQuery Orden;
     ui->ordenMesa->clear();
@@ -70,6 +91,7 @@ void cocinero::on_Mesa_1_clicked()
 
 void cocinero::on_Mesa_2_clicked()
 {
+    ui->Mesa_2->setStyleSheet("QPushButton { background-color: #FF7F00; } ");
     conexion.open();
     QSqlQuery Orden;
     ui->ordenMesa->clear();
@@ -91,6 +113,7 @@ void cocinero::on_Mesa_2_clicked()
 
 void cocinero::on_Mesa_3_clicked()
 {
+    ui->Mesa_3->setStyleSheet("QPushButton { background-color: #FF7F00; } ");
     conexion.open();
     QSqlQuery Orden;
     ui->ordenMesa->clear();
@@ -107,5 +130,53 @@ void cocinero::on_Mesa_3_clicked()
             QListWidgetItem * menu = new QListWidgetItem;
             menu->setText(datos);
             ui->ordenMesa->addItem(datos);
+    }
+}
+
+void cocinero::on_BotonTerminado_clicked()
+{
+    int Mes1 = 1;
+    int Mes2 = 2;
+    int Mes3 = 3;
+
+    NuMes = ui->NumeroMesa->value();
+    conexion.open();
+
+    QMessageBox msj1;
+    msj1.setText("¿Finalizar pedido?");
+    QAbstractButton * Ac = msj1.addButton("Aceptar",QMessageBox::AcceptRole);
+    QAbstractButton * Denied = msj1.addButton("Cancelar",QMessageBox::NoRole);
+    msj1.setIcon(QMessageBox::Information);
+
+    msj1.exec();
+
+    if(msj1.clickedButton() == Ac){
+
+    if(NuMes == Mes1){
+        ui->Mesa_1->setStyleSheet("QPushButton { background-color: #39be00; }");
+        qDebug() << NuMes;
+        QSqlQuery finish;
+        finish.prepare("update orden set estatus = 'Finalizada.' where mesa_idMesa = 1 ");
+        finish.exec();
+        finish.next();
+    }
+
+    if(NuMes == Mes2){
+        ui->Mesa_2->setStyleSheet("QPushButton { background-color: #39be00; }");
+        qDebug() << NuMes;
+        QSqlQuery finish2;
+        finish2.prepare("update orden set estatus = 'Finalizada.' where mesa_idMesa = 2 ");
+        finish2.exec();
+      finish2.next();
+    }
+
+    if(NuMes == Mes3){
+        ui->Mesa_3->setStyleSheet("QPushButton { background-color: #39be00; }");
+        qDebug() << NuMes;
+        QSqlQuery finish3;
+        finish3.prepare("update orden set estatus = 'Finalizada.' where mesa_idMesa = 3 ");
+        finish3.exec();
+        finish3.next();
+    }
     }
 }
