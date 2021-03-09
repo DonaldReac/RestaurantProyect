@@ -77,7 +77,7 @@ void cocinero::on_Mesa_1_clicked()
     menu->setText(mesa);
     ui->ordenMesa->addItem(mesa);
 
-    Orden.prepare("select nombre from comida inner join orden on orden.idComida=comida.idComida and orden.mesa_idMesa=1 ");
+    Orden.prepare("select nombre from comida inner join orden on orden.idComida=comida.idComida and orden.mesa_idMesa=1 where orden.estatus='En proceso.' ");
     Orden.exec();
     while(Orden.next()){
         QString orden=Orden.value(0).toString();
@@ -100,7 +100,7 @@ void cocinero::on_Mesa_2_clicked()
     menu->setText(mesa);
     ui->ordenMesa->addItem(mesa);
 
-    Orden.prepare("select nombre from comida inner join orden on orden.idComida=comida.idComida and orden.mesa_idMesa=2 ");
+    Orden.prepare("select nombre from comida inner join orden on orden.idComida=comida.idComida and orden.mesa_idMesa=2 where orden.estatus='En proceso.' ");
     Orden.exec();
     while(Orden.next()){
         QString orden=Orden.value(0).toString();
@@ -122,7 +122,7 @@ void cocinero::on_Mesa_3_clicked()
     menu->setText(mesa);
     ui->ordenMesa->addItem(mesa);
 
-    Orden.prepare("select nombre from comida inner join orden on orden.idComida=comida.idComida and orden.mesa_idMesa=3 ");
+    Orden.prepare("select nombre from comida inner join orden on orden.idComida=comida.idComida and orden.mesa_idMesa=3 where orden.estatus='En proceso.'");
     Orden.exec();
     while(Orden.next()){
         QString orden=Orden.value(0).toString();

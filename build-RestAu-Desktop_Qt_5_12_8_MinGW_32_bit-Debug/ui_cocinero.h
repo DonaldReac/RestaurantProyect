@@ -15,6 +15,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QWidget>
 
@@ -43,8 +44,8 @@ public:
     QLabel *label_4;
     QLabel *label_2;
     QListWidget *ordenMesa;
-    QPushButton *Ordenes_Mesas_2;
-    QPushButton *Ordenes_Mesas_3;
+    QPushButton *BotonTerminado;
+    QSpinBox *NumeroMesa;
     QWidget *page_3;
 
     void setupUi(QWidget *cocinero)
@@ -194,11 +195,11 @@ public:
         ordenMesa = new QListWidget(ordenes);
         ordenMesa->setObjectName(QString::fromUtf8("ordenMesa"));
         ordenMesa->setGeometry(QRect(340, 130, 200, 260));
-        Ordenes_Mesas_2 = new QPushButton(ordenes);
-        Ordenes_Mesas_2->setObjectName(QString::fromUtf8("Ordenes_Mesas_2"));
-        Ordenes_Mesas_2->setGeometry(QRect(340, 340, 91, 51));
-        Ordenes_Mesas_2->setFont(font);
-        Ordenes_Mesas_2->setStyleSheet(QString::fromUtf8("QPushButton\n"
+        BotonTerminado = new QPushButton(ordenes);
+        BotonTerminado->setObjectName(QString::fromUtf8("BotonTerminado"));
+        BotonTerminado->setGeometry(QRect(450, 340, 91, 51));
+        BotonTerminado->setFont(font);
+        BotonTerminado->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "  border:0px solid gray;\n"
 "  padding: 0 8px;\n"
@@ -210,28 +211,12 @@ public:
 "	background-color: rgb(223, 138, 19);\n"
 "}"));
         QIcon icon3;
-        icon3.addFile(QString::fromUtf8(":/img/Iconos/proceso.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Ordenes_Mesas_2->setIcon(icon3);
-        Ordenes_Mesas_2->setIconSize(QSize(30, 30));
-        Ordenes_Mesas_3 = new QPushButton(ordenes);
-        Ordenes_Mesas_3->setObjectName(QString::fromUtf8("Ordenes_Mesas_3"));
-        Ordenes_Mesas_3->setGeometry(QRect(450, 340, 91, 51));
-        Ordenes_Mesas_3->setFont(font);
-        Ordenes_Mesas_3->setStyleSheet(QString::fromUtf8("QPushButton\n"
-"{\n"
-"  border:0px solid gray;\n"
-"  padding: 0 8px;\n"
-"  background: yellow;\n"
-"background-color: rgba(216, 223, 233,0);\n"
-"}\n"
-"QPushButton:hover\n"
-"{\n"
-"	background-color: rgb(223, 138, 19);\n"
-"}"));
-        QIcon icon4;
-        icon4.addFile(QString::fromUtf8(":/img/Iconos/terminado.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Ordenes_Mesas_3->setIcon(icon4);
-        Ordenes_Mesas_3->setIconSize(QSize(30, 30));
+        icon3.addFile(QString::fromUtf8(":/img/Iconos/terminado.png"), QSize(), QIcon::Normal, QIcon::Off);
+        BotonTerminado->setIcon(icon3);
+        BotonTerminado->setIconSize(QSize(30, 30));
+        NumeroMesa = new QSpinBox(ordenes);
+        NumeroMesa->setObjectName(QString::fromUtf8("NumeroMesa"));
+        NumeroMesa->setGeometry(QRect(360, 350, 71, 31));
         stackedWidget_2->addWidget(ordenes);
         Mesa_1->raise();
         Mesa_5->raise();
@@ -245,8 +230,8 @@ public:
         label_2->raise();
         label_4->raise();
         ordenMesa->raise();
-        Ordenes_Mesas_2->raise();
-        Ordenes_Mesas_3->raise();
+        BotonTerminado->raise();
+        NumeroMesa->raise();
         page_3 = new QWidget();
         page_3->setObjectName(QString::fromUtf8("page_3"));
         stackedWidget_2->addWidget(page_3);
@@ -273,8 +258,7 @@ public:
         label_3->setText(QApplication::translate("cocinero", "Bienvenido a la cocina", nullptr));
         label_4->setText(QApplication::translate("cocinero", "Orden", nullptr));
         label_2->setText(QString());
-        Ordenes_Mesas_2->setText(QString());
-        Ordenes_Mesas_3->setText(QString());
+        BotonTerminado->setText(QString());
     } // retranslateUi
 
 };

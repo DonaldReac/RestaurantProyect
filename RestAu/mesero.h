@@ -23,12 +23,13 @@ class mesero : public QDialog
 
 public:
     explicit mesero(int Id,QWidget *parent = nullptr);
+
     ~mesero();
 
 private slots:
 
 
-
+void onComboChanged(const QString & text);
 
 
     void on_Salir_clicked();
@@ -43,10 +44,12 @@ private slots:
 
     void on_listapedido_itemSelectionChanged();
 
+    void on_NuevoPedido_2_clicked();
+
 private:
     Ui::mesero *ui;
     QSqlDatabase  conexion;
-    QString Id;
+    QString IdMesero;
     int importe,totalcomida,importetotal,idco;
 
 

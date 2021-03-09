@@ -33,6 +33,7 @@ public:
     QPushButton *Salir;
     QPushButton *Buscar;
     QPushButton *NuevoPedido;
+    QPushButton *NuevoPedido_2;
     QStackedWidget *stackedWidget;
     QWidget *page;
     QLabel *label_2;
@@ -52,6 +53,10 @@ public:
     QSpinBox *total;
     QLineEdit *mesa;
     QLabel *label_8;
+    QWidget *page_3;
+    QTableWidget *tableWidget;
+    QLabel *label_9;
+    QLabel *label_10;
 
     void setupUi(QDialog *mesero)
     {
@@ -128,6 +133,24 @@ public:
         icon2.addFile(QString::fromUtf8(":/img/Iconos/anadir.png"), QSize(), QIcon::Normal, QIcon::Off);
         NuevoPedido->setIcon(icon2);
         NuevoPedido->setIconSize(QSize(30, 30));
+        NuevoPedido_2 = new QPushButton(widget);
+        NuevoPedido_2->setObjectName(QString::fromUtf8("NuevoPedido_2"));
+        NuevoPedido_2->setGeometry(QRect(10, 270, 131, 61));
+        NuevoPedido_2->setStyleSheet(QString::fromUtf8("QPushButton\n"
+"{\n"
+"  border:0px solid gray;\n"
+"  padding: 0 8px;\n"
+"  background: yellow;\n"
+"background-color: rgba(216, 223, 233,0);\n"
+"}\n"
+"QPushButton:hover\n"
+"{\n"
+"	background-color: rgb(223, 138, 19);\n"
+"}"));
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/img/Iconos/terminado.png"), QSize(), QIcon::Normal, QIcon::Off);
+        NuevoPedido_2->setIcon(icon3);
+        NuevoPedido_2->setIconSize(QSize(30, 30));
         stackedWidget = new QStackedWidget(mesero);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
         stackedWidget->setGeometry(QRect(150, 0, 681, 491));
@@ -206,9 +229,9 @@ public:
 "{\n"
 "	background-color: rgb(223, 138, 19);\n"
 "}"));
-        QIcon icon3;
-        icon3.addFile(QString::fromUtf8(":/img/Iconos/iconfinder_My_order_6457548.png"), QSize(), QIcon::Normal, QIcon::Off);
-        CrearPedido->setIcon(icon3);
+        QIcon icon4;
+        icon4.addFile(QString::fromUtf8(":/img/Iconos/iconfinder_My_order_6457548.png"), QSize(), QIcon::Normal, QIcon::Off);
+        CrearPedido->setIcon(icon4);
         CrearPedido->setIconSize(QSize(30, 30));
         label_7 = new QLabel(page_2);
         label_7->setObjectName(QString::fromUtf8("label_7"));
@@ -228,10 +251,32 @@ public:
         label_8->setGeometry(QRect(410, 30, 81, 20));
         label_8->setFont(font1);
         stackedWidget->addWidget(page_2);
+        page_3 = new QWidget();
+        page_3->setObjectName(QString::fromUtf8("page_3"));
+        tableWidget = new QTableWidget(page_3);
+        tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
+        tableWidget->setGeometry(QRect(20, 110, 641, 331));
+        label_9 = new QLabel(page_3);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
+        label_9->setGeometry(QRect(-120, 360, 221, 151));
+        label_9->setPixmap(QPixmap(QString::fromUtf8(":/img/Iconos/platillos-png.png")));
+        label_9->setScaledContents(true);
+        label_10 = new QLabel(page_3);
+        label_10->setObjectName(QString::fromUtf8("label_10"));
+        label_10->setGeometry(QRect(250, 40, 131, 61));
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("Caviar Dreams"));
+        font2.setPointSize(22);
+        font2.setItalic(true);
+        label_10->setFont(font2);
+        stackedWidget->addWidget(page_3);
+        label_9->raise();
+        tableWidget->raise();
+        label_10->raise();
 
         retranslateUi(mesero);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(mesero);
@@ -244,6 +289,7 @@ public:
         Salir->setText(QString());
         Buscar->setText(QApplication::translate("mesero", "Buscar", nullptr));
         NuevoPedido->setText(QApplication::translate("mesero", "Agregar", nullptr));
+        NuevoPedido_2->setText(QApplication::translate("mesero", "Ordenes", nullptr));
         label_2->setText(QApplication::translate("mesero", "Buscar Platillos", nullptr));
         lineEdit->setPlaceholderText(QApplication::translate("mesero", "ID PLATILLO", nullptr));
         label_3->setText(QApplication::translate("mesero", "Desayunos", nullptr));
@@ -253,6 +299,8 @@ public:
         CrearPedido->setText(QApplication::translate("mesero", "Crear Pedido", nullptr));
         label_7->setText(QApplication::translate("mesero", "Importe: ", nullptr));
         label_8->setText(QApplication::translate("mesero", "No. Mesa:", nullptr));
+        label_9->setText(QString());
+        label_10->setText(QApplication::translate("mesero", "Ordenes", nullptr));
     } // retranslateUi
 
 };

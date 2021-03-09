@@ -11,13 +11,16 @@
 #include <QTextDocument>
 #include <QDesktopServices>
 #include <QPainter>
+#include <QPushButton>
+#include <QTableWidgetItem>
+#include <QComboBox>
+#include <QTabWidget>
 
 mesero::mesero(int Id, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::mesero)
 {
-    this->Id = Id;
-    this->Id.toUInt();
+    IdMesero = QString::number(Id);
     ui->setupUi(this);
 
     ui->total->setDisabled(true);
@@ -311,3 +314,98 @@ void mesero::on_listapedido_itemSelectionChanged()
 {
     ui->listapedido->setAcceptDrops(false);
 }
+
+void mesero::on_NuevoPedido_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+    ui->tableWidget->setColumnCount(0);
+    ui->tableWidget->setRowCount(0);
+    QStringList elementos;
+
+    ui->tableWidget->setColumnCount(6);
+    elementos << "Nombre" << "Apellido" << "Mesa" << "Platillo" << "idPlatillo" << "Entregado";
+    ui->tableWidget->setHorizontalHeaderLabels(elementos);
+    QSqlQuery ordenes;
+    ordenes.prepare("select u.nombre,u.apellidoMaterno,m.idMesa,c.nombre,o.idComida,o.estatus  from usuario as u inner join mesero as me on u.idUsuario=me.idMesero inner join mesa as m on me.idMesero=m.mesero_idMesero inner join orden as o on m.idMesa=o.mesa_idMesa inner join comida as c on c.idComida=o.idComida where u.idUsuario='"+IdMesero+"' and o.estatus='Finalizada.'");
+    qDebug()<<IdMesero;
+    ordenes.exec();
+    int i=0;
+    while(ordenes.next())
+    {
+
+        QComboBox* myComboBox = new QComboBox(); // making a new dropdown box
+        myComboBox->setObjectName(QString::number(i)); // pass column number as object name
+        myComboBox->addItem("      ");
+        myComboBox->addItem("Entregar");
+        myComboBox->addItem("Cancelar");
+        myComboBox->setStyleSheet("background-color:orange");
+
+        QString nombre = ordenes.value(0).toString();
+        QString Apellido = ordenes.value(1).toString();
+        QString idMesa = ordenes.value(2).toString();
+        QString Platillos = ordenes.value(3).toString();
+        QString estatus = ordenes.value(4).toString();
+
+        connect(myComboBox, SIGNAL(currentIndexChanged(QString)), SLOT(onComboChanged(QString)));
+
+        ui->tableWidget->setCellWidget(0,i,myComboBox); // put box into table
+
+
+        ui->tableWidget->insertRow(ui->tableWidget->rowCount());
+
+        ui->tableWidget->setItem(ui->tableWidget->rowCount()-1,0,new QTableWidgetItem(nombre));
+        ui->tableWidget->setItem(ui->tableWidget->rowCount()-1,1,new QTableWidgetItem(Apellido));
+        ui->tableWidget->setItem(ui->tableWidget->rowCount()-1,2,new QTableWidgetItem(idMesa));
+        ui->tableWidget->setItem(ui->tableWidget->rowCount()-1,3,new QTableWidgetItem(Platillos));
+        ui->tableWidget->setItem(ui->tableWidget->rowCount()-1,4,new QTableWidgetItem(estatus));
+        ui->tableWidget->setCellWidget(ui->tableWidget->rowCount()-1,5,myComboBox);
+        i++;
+
+    }
+
+
+}
+
+void mesero::onComboChanged(const QString & text)
+   {
+    qDebug() << text;
+       QComboBox * comboBox = dynamic_cast<QComboBox *>(sender());
+       int column = comboBox->objectName().toInt();  // retrieve column number
+        QString idcita = ui->tableWidget->item(column,4)->text();
+
+
+    QMessageBox message1;
+    message1.setWindowTitle("Recibir Pedido");
+    message1.setIcon(QMessageBox::Question);
+    message1.setText("El pedido está listo,¿Confirmar entrega?");
+    QAbstractButton * btnYes = message1.addButton(tr("Si"),QMessageBox::YesRole);
+    QAbstractButton * btnNo = message1.addButton(tr("No"),QMessageBox::YesRole);
+    message1.exec();
+
+
+     if(message1.clickedButton() == btnYes && text =="Entregar")
+     {
+          comboBox->setStyleSheet("background-color:green");
+         QMessageBox::information(this,"Pedido","El pedido se ha realizado correctamente.","Aceptar");
+
+         QSqlQuery entregado;
+         entregado.prepare("update orden set estatus = 'Entregado.' where idComida = "+idcita+"");
+         entregado.exec();
+
+     } else if(message1.clickedButton() == btnYes && text =="Cancelar")
+     {
+        comboBox->setStyleSheet("background-color:red");
+         QMessageBox::warning(this,"Error","Platillo Cancelado","Aceptar");
+        QSqlQuery eliminado;
+        eliminado.prepare("delete from orden where idComida="+idcita+"");
+        eliminado.exec();
+     }
+     else
+     {
+         QMessageBox::warning(this,"Error","Platillo sin cambios","Aceptar");
+     }
+
+
+
+
+   }
